@@ -168,6 +168,28 @@ class SideMenu
                             ]
                         ]
                     ],
+                    'project' => [
+                        'icon' => '',
+                        'title' => 'Dự án',
+                        'sub_menu' => [
+                            'add-project' => [
+                                'icon' => '',
+                                'route_name' => 'add-project',
+                                'params' => [
+                                    'layout' => 'side-menu'
+                                ],
+                                'title' => 'Đăng Bài'
+                            ],
+                            'all-project' => [
+                                'icon' => '',
+                                'route_name' => 'all-project',
+                                'params' => [
+                                    'layout' => 'side-menu'
+                                ],
+                                'title' => 'Danh sách'
+                            ]
+                        ]
+                    ],
                  
                    
                 ]

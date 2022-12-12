@@ -141,13 +141,17 @@
 @import "./components/_notification-content.css";
 @import "./components/_report-maps.css";
 @import "./components/_pos-dropdown.css";
-@import "./components/_post.css";
+
+/* @import "./components/_post.css"; */
+
 @import "./components/_litepicker.css";
 @import "./components/_tiny-slider.css";
 @import "./components/_tippy.css";
 @import "./components/_tabulator.css";
 @import "./components/_tom-select.css";
-@import "./components/_dropzone.css";
+
+/* @import "./components/_dropzone.css"; */
+
 @import "./components/_ckeditor.css";
 @import "./components/_zoom-vanilla.css";
 @import "./components/_dark-mode-switcher.css";
@@ -155,3 +159,6 @@
 @import "./components/_source-preview.css";
 @import "./components/_full-calendar.css";
 @import "./components/_pristine.css";
+
+/* 
+*************** */

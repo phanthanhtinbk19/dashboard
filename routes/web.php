@@ -14,6 +14,7 @@ use App\Http\Controllers\ColorSchemeController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FileUpload;
 use App\Http\Controllers\PeopleController;
+use App\Http\Controllers\ProjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,65 +26,72 @@ use App\Http\Controllers\PeopleController;
 |
 */
 
-
 Route::get('people', [PeopleController::class, 'index'])->name('people.index');
 Route::post('people/store', [PeopleController::class, 'store'])->name('people.store');
 Route::get('people/edit/{id}/', [PeopleController::class, 'edit']);
 Route::post('people/update', [PeopleController::class, 'update'])->name('people.update');
 Route::get('people/destroy/{id}/', [PeopleController::class, 'destroy']);
+// Route::get('register', [PageController::class, 'register']);
 
 Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
 Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
 
-Route::controller(AuthController::class)->middleware('loggedin')->group(function() {
-    Route::get('login', 'loginView')->name('login.index');
-    Route::post('login', 'login')->name('login.check');
-});
+Route::controller(AuthController::class)
+    ->middleware('loggedin')
+    ->group(function () {
+        Route::get('login', 'loginView')->name('login.index');
+        Route::post('login', 'login')->name('login.check');
+    });
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/create', [FileController::class, 'create']);
     Route::post('create/', [FileController::class, 'store']);
     Route::get('/image-upload', [FileUpload::class, 'createForm']);
-Route::post('/image-upload', [FileUpload::class, 'fileUpload'])->name('imageUpload');
-    Route::controller(UserController::class)->group(function() {
-        Route::get('add-user','addUser')->name('add-user');
-        Route::get('all-user','allUser')->name('all-user');
-        Route::get('update-profile','updateProfile')->name('update-profile');
-        Route::post('save-user','saveUser')->name('save-user');
+    Route::post('/image-upload', [FileUpload::class, 'fileUpload'])->name('imageUpload');
+    Route::controller(UserController::class)->group(function () {
+        Route::get('add-user', 'addUser')->name('add-user');
+        Route::get('all-user', 'allUser')->name('all-user');
+        Route::get('update-profile', 'updateProfile')->name('update-profile');
+        Route::post('save-user', 'saveUser')->name('save-user');
     });
-    Route::controller(CategoryController::class)->group(function() {
-        Route::get('add-category','addCategory')->name('add-category');
-        Route::get('all-cate','allCate')->name('all-cate');
-        Route::post('save-category','saveCategory')->name('save-category');
-        Route::get('/edit-cate/{cate_id}','editCate');  
-        Route::post('/update-cate/{cate_id}','updateCate');   
-        Route::get('/delete-cate/{cate_id}','deleteCate');  
+    Route::controller(CategoryController::class)->group(function () {
+        Route::get('add-category', 'addCategory')->name('add-category');
+        Route::get('all-cate', 'allCate')->name('all-cate');
+        Route::post('save-category', 'saveCategory')->name('save-category');
+        Route::get('/edit-cate/{cate_id}', 'editCate');
+        Route::post('/update-cate/{cate_id}', 'updateCate');
+        Route::get('/delete-cate/{cate_id}', 'deleteCate');
     });
-  
-    Route::controller(KindController::class)->group(function() {
-        Route::get('add-kind','addKind')->name('add-kind');
-        Route::get('kinds','kinds')->name('kinds');
-        Route::post('save-kind','saveKind')->name('save-kind');
+
+    Route::controller(KindController::class)->group(function () {
+        Route::get('add-kind', 'addKind')->name('add-kind');
+        Route::get('kinds', 'kinds')->name('kinds');
+        Route::post('save-kind', 'saveKind')->name('save-kind');
     });
-    Route::controller(PostController::class)->group(function() {
-        Route::get('add-post','addPost')->name('add-post');
-        Route::get('all-post','allPost')->name('all-post');
-        Route::post('save-post','savePost')->name('save-post');
-        Route::get('save-image','saveImage')->name('save-image');
+    Route::controller(PostController::class)->group(function () {
+        Route::get('add-post', 'addPost')->name('add-post');
+        Route::get('all-post', 'allPost')->name('all-post');
+        Route::post('save-post', 'savePost')->name('save-post');
+        Route::get('save-image', 'saveImage')->name('save-image');
+    });
+    Route::controller(ProjectController::class)->group(function () {
+        Route::get('add-project', 'addProject')->name('add-project');
+        Route::get('all-project', 'allProject')->name('all-project');
+        Route::post('save-project', 'saveProject')->name('save-project');
     });
     // Route::controller(PositionController::class)->group(function() {
     //     Route::get('add-positon','addPositon')->name('add-positon');
     //     Route::get('positons','Positons')->name('positons');
     //     Route::post('save-positon','savePositon')->name('save-positon');
     // });
-    Route::controller(EmployeeController::class)->group(function() {
-        Route::get('add-employee','addEmployee')->name('add-employee');
-        Route::get('all-employee','allEmployee')->name('all-employee');
-        Route::post('save-employee','saveEmployee')->name('save-employee');
+    Route::controller(EmployeeController::class)->group(function () {
+        Route::get('add-employee', 'addEmployee')->name('add-employee');
+        Route::get('all-employee', 'allEmployee')->name('all-employee');
+        Route::post('save-employee', 'saveEmployee')->name('save-employee');
     });
-  
-    Route::controller(PageController::class)->group(function() {
+
+    Route::controller(PageController::class)->group(function () {
         Route::get('/', 'dashboardOverview1')->name('dashboard-overview-1');
 
         Route::get('product-grid-page', 'productGrid')->name('product-grid');
@@ -122,7 +130,7 @@ Route::post('/image-upload', [FileUpload::class, 'fileUpload'])->name('imageUplo
         Route::get('login-page', 'login')->name('login');
         Route::get('register-page', 'register')->name('register');
         Route::get('error-page-page', 'errorPage')->name('error-page');
-       
+
         Route::get('change-password-page', 'changePassword')->name('change-password');
         Route::get('regular-table-page', 'regularTable')->name('regular-table');
         Route::get('tabulator-page', 'tabulator')->name('tabulator');

@@ -19,7 +19,9 @@ export default defineConfig({
         laravel({
             input: [
                 "resources/css/app.css",
+                "resources/css/main.css",
                 "resources/js/app.js",
+                "resources/js/bootstrap.js",
                 "resources/js/ckeditor-classic.js",
                 "resources/js/ckeditor-inline.js",
                 "resources/js/ckeditor-balloon.js",

@@ -15,11 +15,11 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script>
 
-    @vite('resources/js/app.js')
+
     <!-- END: JS Assets-->
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('ckfinder/ckfinder.js')}}"></script>
     @yield('script')
-
+    @vite('resources/js/app.js')
 </body>
 @endsection

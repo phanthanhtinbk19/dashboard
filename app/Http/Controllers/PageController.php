@@ -441,7 +441,7 @@ class PageController extends Controller
     {
         return view('pages/login');
     }
-
+ 
     /**
      * Show specified view.
      *

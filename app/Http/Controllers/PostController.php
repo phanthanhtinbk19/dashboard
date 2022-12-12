@@ -11,6 +11,7 @@ class PostController extends Controller
 {
     public function savePost(Request $request)
     {
+     
       $data = array();
       $data['title'] = $request->title;
       $data['desc'] = $request->desc;

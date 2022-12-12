@@ -19,6 +19,11 @@ class AuthController extends Controller
             'layout' => 'login'
         ]);
     }
+    public function register()
+    {
+        dd("dssd");
+        return view('page.register');
+    }
 
     /**
      * Authenticate login user.

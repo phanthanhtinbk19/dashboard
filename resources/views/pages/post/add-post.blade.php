@@ -85,6 +85,7 @@
                                 <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Text Content
                             </div>
                             <div class="mt-5">
+
                                 <textarea name="desc" id="editor1" width="100%" rows="10"></textarea>
                             </div>
                             {{-- <div class="show"></div> --}}

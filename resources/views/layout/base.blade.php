@@ -31,6 +31,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN: CSS Assets-->
     @vite('resources/css/app.css')
+    @vite('resources/css/main.css')
+
 
     <!-- END: CSS Assets-->
 </head>
