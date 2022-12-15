@@ -29,7 +29,6 @@ import "./tiny-slider";
 import "./tippy";
 import "./datepicker";
 import "./tom-select";
-import "./dropzone";
 import "./validation";
 import "./zoom";
 import "./notification";

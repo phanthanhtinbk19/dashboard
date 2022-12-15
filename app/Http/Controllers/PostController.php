@@ -1,59 +1,131 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use DB;
-use App\Models\File;
+use App\Models\Post;
+use App\Models\Category;
+use App\Models\Kind;
 use App\Models\Image;
-use Illuminate\Support\Facades\File as File2; 
+
 class PostController extends Controller
 {
-    public function savePost(Request $request)
+    public function savePostAdmin(Request $request)
     {
-     
-      $data = array();
-      $data['title'] = $request->title;
-      $data['desc'] = $request->desc;
-      $data['category_id'] = $request->category_id;
-      $data['kind_id'] = $request->kind_id;
-      $data['price'] = $request->price;
-      $data['area'] = $request->area;
-      $data['address'] = $request->address;
-      $request->validate([
-        'imageFile' => 'required',
-        'imageFile.*' => 'mimes:jpeg,jpg,png,gif,csv,txt,pdf|max:2048'
-      ]);
-      if($request->hasfile('imageFile')) {
-     
-          foreach($request->file('imageFile') as $file)
-          {
-              $name = $file->getClientOriginalName();
-              $file->move(public_path().'/uploads/posts', $name); 
-             $imgData[] =$name;
-          }
-          $data['images'] = json_encode($imgData);
-      }
-     
-      DB::table('posts')->insert($data);
+        try {
+            $post = new Post();
+            $post->title = $request->title;
+            $post->desc = $request->desc;
+            $post->category_id = $request->category_id;
+            $post->kind_id = $request->kind_id;
+            $post->price = $request->price;
+            $post->area = $request->area;
+            $post->address = $request->address;
+            $post->save();
+            $post_id = $post->id; // this give us the last inserted record id
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'exception', 'msg' => $e->getMessage()]);
+        }
 
-      return redirect("/all-post");
+        return response()->json(['status' => 'success', 'post_id' => $post_id]);
     }
+    public function storeMultipleImage(Request $request)
+    {
+        try {
+            $imageArr = [];
+            foreach ($request->file('file') as $file) {
+                $postid = $request->postid;
+                $post_image = new Post();
+                $name = time() . rand(1, 100) . '.' . $file->extension();
+                $file->move(public_path('/uploads/images'), $name);
+                $imageArr[] = $name;
+            }
+            $imageArrToStr = implode(',', $imageArr);
+            $post_image->where('id', $postid)->update(['images' => $imageArrToStr]);
+            return response()->json(['status' => 'success', 'imgdata' => $original_name, 'postid' => $postid]);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+    public function addPostAdmin()
+    {
+        try {
+            $kinds = Kind::all();
+            $cates = Category::all();
+
+            return view('pages.admin.post.add-post', compact('kinds', 'cates'));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+    public function allPostAdmin()
+    {
+        $posts = Post::all();
+        $cates = Category::all();
+        $kinds = Kind::all();
+        return view('pages.admin.post.all-post', compact('posts', 'cates', 'kinds'));
+    }
+
+    //user
+
     public function addPost()
     {
-      $files = File::all();
-      $all_kind = DB::table('kinds')->get();
-      $all_cate = DB::table('categories')->get();
-      // return view('pages.post.add-post', ['files' => $files]);
-      return view('pages.post.add-post', compact("all_kind","all_cate"));
-      
+        try {
+            $kinds = Kind::all();
+            $cates = Category::all();
+            return view('pages.user.post', compact('kinds', 'cates'));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
-    public function allPost()
+    public function listPost()
     {
-        $all_post = DB::table('posts')->get();
-        $cates = DB::table('categories')->get();
+        return view('pages.user.post-management');
+    }
+
+    public function savePost(Request $request)
+    {
+        try {
+            $post = new Post();
+            $post->title = $request->title;
+            //   $post->desc = $request->desc;
+            $post->desc = $request->description;
+            $post->save();
+            $post_id = $post->id; // this give us the last inserted record id
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'exception', 'msg' => $e->getMessage()]);
+        }
+
+        return response()->json(['status' => 'success', 'post_id' => $post_id]);
+    }
+    // public function storeMultipleImage(Request $request)
+    // {
+    //    try {
+    //     $imageArr = [];
+    //     foreach ($request->file('file') as $file) {
+    //         $postid = $request->postid;
+    //         $post_image = new Post();
+    //         $name = time().rand(1,100).'.'.$file->extension();
+    //         $file->move(public_path('/uploads/images'), $name);
+    //         $imageArr[] = $name;
+    //     }
+    //     $imageArrToStr = implode(',', $imageArr);
+    //     $post_image->where('id', $postid)->update(['thumbnail' => $imageArrToStr]);
+    //     return response()->json(['status' => 'success', 'imgdata' => $original_name, 'postid' => $postid]);
+    //    } catch (\Throwable $th) {
+    //     //throw $th;
+    //    }
+    // }
+
+    public function detail(Request $request)
+    {
+        $post_id = $request->post_id;
+        $post = DB::table('posts')
+            ->where('id', $post_id)
+            ->get();
+        $all_post = DB::table('posts')
+            ->whereNotIn('id', [$post_id])
+            ->get();
         $kinds = DB::table('kinds')->get();
-     
-        return view('pages.post.all-post',compact('all_post',"cates","kinds"));
+        return view('pages.user.detail-post', compact('all_post', 'post', 'kinds'));
     }
 }

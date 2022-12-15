@@ -1,0 +1,68 @@
+.popup-filter {
+  position: absolute;
+  width: 30rem;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.popup-filter select {
+  margin: 1.5rem 0;
+  padding: 1rem;
+}
+
+.popup-filter h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #000;
+}
+
+.popup-filter__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.4rem;
+  border-top: 1px solid #8f8e8e;
+  padding-top: 1rem;
+}
+
+.popup-filter__item {
+  margin: 1rem 0;
+}
+
+.popup-filter__item h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #000;
+}
+
+.popup-filter__item .num-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+.popup-filter__item span {
+  font-size: 1.4rem;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 6px 16px;
+  background: #f2f2f2;
+  color: #2c2c2c;
+  float: left;
+  margin: 0px 8px 8px 0px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=popup.css.map */

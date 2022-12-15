@@ -1,0 +1,67 @@
+.sidebar {
+    width: 100%;
+    margin-top: 1rem;
+    .fb-page {
+        width: 100%;
+    }
+    &__top {
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        position: relative;
+    }
+    &__top h3,
+    &__middle h3 {
+        color: #185785;
+        text-align: center;
+        padding: 1rem 0;
+    }
+    &__top::after,
+    &__middle::after {
+        content: " ";
+        position: absolute;
+        width: 80%;
+        height: 4px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #185785;
+    }
+    &__top &__item {
+        padding: 1rem;
+    }
+    &__top &__img {
+        width: 100%;
+        height: 15rem;
+    }
+    &__top &__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__top &__title a {
+        font-weight: 500;
+        font-size: 1.6rem;
+        color: #185785;
+    }
+    &__middle {
+        border: 1px solid #ccc;
+        border-radius: 1px solid #ccc;
+        position: relative;
+        margin: 3rem 0;
+    }
+    &__middle &__list {
+        margin: 0;
+        padding-left: 0;
+    }
+    &__middle &__list li {
+        border-top: 1px solid #ccc;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    &__middle &__list li a {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+}

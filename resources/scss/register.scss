@@ -1,0 +1,126 @@
+.register {
+    width: 450px;
+    margin: 8rem auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 0.8rem;
+    padding: 2.5rem;
+    background-color: #fff;
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__header h2 {
+        font-size: 2rem;
+        color: $blue;
+        text-transform: capitalize;
+    }
+    &__group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid #ccc;
+        padding: 0.8rem;
+        border-radius: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    &__group input {
+        border: none;
+        font-size: 1.4rem;
+    }
+    &__group i {
+        font-size: 2rem;
+    }
+    &__title {
+        font-size: 1.4rem;
+        font-weight: 500;
+        padding-top: 1rem;
+    }
+    .btn-group-lg>.btn,
+    .btn-lg {
+        padding: 1rem;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: #fff;
+        border-radius: 0.8rem;
+        margin-top: 1rem;
+    }
+    &__help {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__forget-password a {
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: #ff837a;
+    }
+    &__term {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem 0;
+    }
+    &__term input {
+        font-size: 2rem;
+        margin-top: 0;
+    }
+    &__term label {
+        font-size: 1.4rem;
+        color: #000;
+    }
+    &__social a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.5rem;
+        border: 1px solid #ccc;
+        padding: 1rem;
+        font-size: $size-text;
+        font-weight: 500;
+    }
+    &-social__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    &-social__title span {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #fff;
+        font-size: 1.4rem;
+        color: #999999;
+        z-index: 100;
+    }
+    &-social__title::before {
+        content: " ";
+        position: absolute;
+        width: 50%;
+        height: 1px;
+        background-color: #999999a9;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+    &-social__title::after {
+        content: " ";
+        position: absolute;
+        width: 50%;
+        height: 1px;
+        background-color: #999999a9;
+        top: 50%;
+        right: 0;
+    }
+    &__footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4rem;
+    }
+    &__footer a {
+        color: #ff837a;
+        font-weight: 500;
+    }
+}

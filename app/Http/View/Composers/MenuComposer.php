@@ -63,76 +63,24 @@ class MenuComposer
         $thirdLevelActiveIndex = '';
 
 
-        if ($layout == 'top-menu') {
-            foreach (TopMenu::menu() as $menuKey => $menu) {
-                if (isset($menu['route_name']) && $menu['route_name'] == $pageName && empty($firstPageName)) {
-                    $firstLevelActiveIndex = $menuKey;
-                }
-
-                if (isset($menu['sub_menu'])) {
-                    foreach ($menu['sub_menu'] as $subMenuKey => $subMenu) {
-                        if (isset($subMenu['route_name']) && $subMenu['route_name'] == $pageName && $menuKey != 'menu-layout' && empty($secondPageName)) {
-                            $firstLevelActiveIndex = $menuKey;
-                            $secondLevelActiveIndex = $subMenuKey;
-                        }
-
-                        if (isset($subMenu['sub_menu'])) {
-                            foreach ($subMenu['sub_menu'] as $lastSubMenuKey => $lastSubMenu) {
-                                if (isset($lastSubMenu['route_name']) && $lastSubMenu['route_name'] == $pageName) {
-                                    $firstLevelActiveIndex = $menuKey;
-                                    $secondLevelActiveIndex = $subMenuKey;
-                                    $thirdLevelActiveIndex = $lastSubMenuKey;
-                                }
-                            }
-                        }
-                    }
-                }
+        foreach (SideMenu::menu() as $menuKey => $menu) {
+            if ($menu !== 'devider' && isset($menu['route_name']) && $menu['route_name'] == $pageName && empty($firstPageName)) {
+                $firstLevelActiveIndex = $menuKey;
             }
-        } else if ($layout == 'simple-menu') {
-            foreach (SimpleMenu::menu() as $menuKey => $menu) {
-                if ($menu !== 'devider' && isset($menu['route_name']) && $menu['route_name'] == $pageName && empty($firstPageName)) {
-                    $firstLevelActiveIndex = $menuKey;
-                }
 
-                if (isset($menu['sub_menu'])) {
-                    foreach ($menu['sub_menu'] as $subMenuKey => $subMenu) {
-                        if (isset($subMenu['route_name']) && $subMenu['route_name'] == $pageName && $menuKey != 'menu-layout' && empty($secondPageName)) {
-                            $firstLevelActiveIndex = $menuKey;
-                            $secondLevelActiveIndex = $subMenuKey;
-                        }
-
-                        if (isset($subMenu['sub_menu'])) {
-                            foreach ($subMenu['sub_menu'] as $lastSubMenuKey => $lastSubMenu) {
-                                if (isset($lastSubMenu['route_name']) && $lastSubMenu['route_name'] == $pageName) {
-                                    $firstLevelActiveIndex = $menuKey;
-                                    $secondLevelActiveIndex = $subMenuKey;
-                                    $thirdLevelActiveIndex = $lastSubMenuKey;
-                                }
-                            }
-                        }
+            if (isset($menu['sub_menu'])) {
+                foreach ($menu['sub_menu'] as $subMenuKey => $subMenu) {
+                    if (isset($subMenu['route_name']) && $subMenu['route_name'] == $pageName && $menuKey != 'menu-layout' && empty($secondPageName)) {
+                        $firstLevelActiveIndex = $menuKey;
+                        $secondLevelActiveIndex = $subMenuKey;
                     }
-                }
-            }
-        } else {
-            foreach (SideMenu::menu() as $menuKey => $menu) {
-                if ($menu !== 'devider' && isset($menu['route_name']) && $menu['route_name'] == $pageName && empty($firstPageName)) {
-                    $firstLevelActiveIndex = $menuKey;
-                }
 
-                if (isset($menu['sub_menu'])) {
-                    foreach ($menu['sub_menu'] as $subMenuKey => $subMenu) {
-                        if (isset($subMenu['route_name']) && $subMenu['route_name'] == $pageName && $menuKey != 'menu-layout' && empty($secondPageName)) {
-                            $firstLevelActiveIndex = $menuKey;
-                            $secondLevelActiveIndex = $subMenuKey;
-                        }
-
-                        if (isset($subMenu['sub_menu'])) {
-                            foreach ($subMenu['sub_menu'] as $lastSubMenuKey => $lastSubMenu) {
-                                if (isset($lastSubMenu['route_name']) && $lastSubMenu['route_name'] == $pageName) {
-                                    $firstLevelActiveIndex = $menuKey;
-                                    $secondLevelActiveIndex = $subMenuKey;
-                                    $thirdLevelActiveIndex = $lastSubMenuKey;
-                                }
+                    if (isset($subMenu['sub_menu'])) {
+                        foreach ($subMenu['sub_menu'] as $lastSubMenuKey => $lastSubMenu) {
+                            if (isset($lastSubMenu['route_name']) && $lastSubMenu['route_name'] == $pageName) {
+                                $firstLevelActiveIndex = $menuKey;
+                                $secondLevelActiveIndex = $subMenuKey;
+                                $thirdLevelActiveIndex = $lastSubMenuKey;
                             }
                         }
                     }

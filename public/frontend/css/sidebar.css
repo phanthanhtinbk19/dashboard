@@ -1,0 +1,75 @@
+.sidebar {
+    width: 100%;
+}
+
+.sidebar__top {
+    width: 25rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+.sidebar__top h3,
+.sidebar__middle h3 {
+    color: #185785;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.sidebar__top::after,
+.sidebar__middle::after {
+    content: " ";
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #185785;
+}
+
+.sidebar__top .sidebar__item {
+    padding: 1rem;
+}
+
+.sidebar__top .sidebar__img {
+    width: 100%;
+    height: 20rem;
+}
+
+.sidebar__top .sidebar__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidebar__top .sidebar__title a {
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: #185785;
+}
+
+.sidebar__middle {
+    border: 1px solid #ccc;
+    border-radius: 1px solid #ccc;
+    position: relative;
+    margin: 3rem 0;
+}
+
+.sidebar__middle .sidebar__list {
+    margin: 0;
+    padding-left: 0;
+}
+
+.sidebar__middle .sidebar__list li {
+    border-top: 1px solid #ccc;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar__middle .sidebar__list li a {
+    font-size: 1.4rem;
+    font-weight: 500;
+}

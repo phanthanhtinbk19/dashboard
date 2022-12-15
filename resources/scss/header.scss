@@ -1,0 +1,148 @@
+.header {
+    position: fixed;
+    inset: 0;
+    height: 8.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+    box-shadow: #a9a9a9 0px 5px 5px 0px;
+    z-index: 1000;
+    background-color: #fff;
+    &__logo {
+        width: 9rem;
+        height: 100%;
+    }
+    &__logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    &__item {
+        position: relative;
+    }
+    &__item:hover a {
+        color: $red;
+    }
+    &__item>a {
+        display: inline-block;
+        color: $text-color;
+        font-size: $size-text;
+        font-weight: bold;
+    }
+    &__right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    &__like {
+        position: relative;
+    }
+    &__like i {
+        font-size: 2rem;
+    }
+    &__like span {
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.2rem;
+        color: #fff;
+        background-color: $red;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 2rem;
+    }
+    &__signUp,
+    &__signIn {
+        font-size: 1.4rem;
+        padding: 1.5rem 0rem;
+        border-radius: 0.8rem;
+        border: none;
+        font-weight: bold;
+        background: transparent;
+        cursor: pointer;
+        position: relative;
+        width: 10rem;
+    }
+    &__signUp:hover,
+    &__signIn:hover {
+        background-color: rgba(209, 205, 205, 0.495);
+        color: red;
+    }
+    &__signIn::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        right: -0.6rem;
+        height: 2rem;
+        width: 2px;
+        background-color: #ccc;
+        transform: translateY(-50%);
+    }
+    &__post {
+        font-size: $size-text;
+        padding: 1rem 2rem;
+        border-radius: 0.8rem;
+        border: none;
+        font-weight: bold;
+        background-color: $red;
+        cursor: pointer;
+        color: #fff;
+    }
+    &__post a {
+        font-size: 1.4rem;
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.popup {
+    background-color: #fff;
+    width: 30rem;
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    border-radius: 0.5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.popup .popup__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup .popup__list>li {
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.popup ul li:hover {
+    background-color: #bbeb9c9a;
+    color: green;
+}
+
+.popup__dropdown li {
+    list-style: circle;
+    padding: 1rem;
+    margin-left: 3rem;
+}
+
+.popup li a {
+    font-size: 1.4rem;
+}

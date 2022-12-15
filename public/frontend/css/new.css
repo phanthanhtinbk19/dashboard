@@ -1,0 +1,289 @@
+.new {
+    width: 100%;
+    padding-top: 8.4rem;
+}
+
+.new .new__head {
+    background-color: #f8fbff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6%;
+    align-items: center;
+    height: 10rem;
+}
+
+.new .new__heading h4 {
+    font-size: 2.4rem;
+    color: blue;
+}
+
+.new .new__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.new .new__search input {
+    height: 4rem;
+    width: 20rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1.4rem;
+}
+
+.new .new__search span {
+    background-color: green;
+    color: #fff;
+    font-size: 1.6rem;
+    height: 4rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    /* display: inline-block; */
+}
+
+.new .new__wrapper {
+    margin-top: 2rem;
+}
+
+.new .new__item {
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    height: 17rem;
+    border-radius: 0.3rem;
+}
+
+.new .new__img {
+    width: 35rem;
+    height: 100%;
+}
+
+.new .new__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.new .new__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ccc;
+    padding-bottom: 2rem;
+}
+
+.new .new__date {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+}
+
+.new .new__date span {
+    color: #ccc;
+    font-weight: 600;
+    position: relative;
+}
+
+.new .new__date span::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: #cccc;
+    top: 0;
+    right: -2rem;
+}
+
+.new .new__desc {
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
+.new .new__main {
+    height: 50rem;
+}
+
+.card--primary img {
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+}
+
+.card--secondary img {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+}
+
+.card--simple {
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.card--simple h2 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.card--simple p {
+    font-size: 1.4rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    line-height: 1.5;
+}
+
+
+/* .card--simple img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.card--simple h2 {
+    color: #185785;
+    padding: 2rem;
+}
+
+.card--primary h2 {}
+
+.card--secondary h2 {
+    font-size: 1.4rem;
+}
+
+.new .new__item {
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    height: 17rem;
+    border-radius: 0.3rem;
+    margin-bottom: 2rem;
+}
+
+.new .new__img {
+    width: 35rem;
+    height: 100%;
+}
+
+.new .new__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.new .new__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ccc;
+    padding-bottom: 2rem;
+}
+
+.new .new__date {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+}
+
+.new .new__date span {
+    color: #ccc;
+    font-weight: 600;
+    position: relative;
+}
+
+.new .new__date span::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: #cccc;
+    top: 0;
+    right: -2rem;
+}
+
+.new .new__date a {
+    text-decoration: none;
+}
+
+.new .new__desc {
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
+
+/* //ddddddddddddd */
+
+.pagination {
+    width: 50rem;
+    margin: 0 auto;
+}
+
+.pagination ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #fff;
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.pagination ul li {
+    color: #20b2aa;
+    list-style: none;
+    line-height: 45px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.pagination ul li.numb {
+    list-style: none;
+    height: 45px;
+    width: 45px;
+    margin: 0 3px;
+    line-height: 45px;
+    border-radius: 50%;
+}
+
+.pagination ul li.numb.first {
+    margin: 0px 3px 0 -5px;
+}
+
+.pagination ul li.numb.last {
+    margin: 0px -5px 0 3px;
+}
+
+.pagination ul li.dots {
+    font-size: 22px;
+    cursor: default;
+}
+
+.pagination ul li.btn {
+    padding: 0 20px;
+    border-radius: 50px;
+}
+
+.pagination li.active,
+.pagination ul li.numb:hover,
+.pagination ul li:first-child:hover,
+.pagination ul li:last-child:hover {
+    color: #fff;
+    background: #20b2aa;
+}

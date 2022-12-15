@@ -1,0 +1,157 @@
+.login {
+    width: 450px;
+    margin: 5rem auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 0.8rem;
+    padding: 3.2rem;
+    background-color: #fff;
+    margin-top: 10rem;
+}
+
+.login__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__header h2 {
+    font-size: 2rem;
+    color: #016098;
+}
+
+.group-input {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.group-input input {
+    border: none;
+    font-size: 1.4rem;
+}
+
+.group-input i {
+    font-size: 2rem;
+}
+
+.btn-group-lg>.btn,
+.btn-lg {
+    padding: 1rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 0.8rem;
+    margin-top: 1rem;
+}
+
+.login__help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login__forget-password a {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #ff837a;
+}
+
+.login__term {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+}
+
+.login__term input {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.login__term label {
+    font-size: 1.4rem;
+    color: #000;
+}
+
+
+/* .login__contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+} */
+
+.login__fb,
+.login__google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 1.6rem;
+    border-radius: 0.8rem;
+    margin: 1rem 0;
+}
+
+.login__fb span,
+.login__google span {
+    color: #000;
+    font-weight: 500;
+}
+
+.login-social__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.login-social__title span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    font-size: 1.4rem;
+    color: #999999;
+    z-index: 100;
+}
+
+.login-social__title::before {
+    content: " ";
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    background-color: #999999a9;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.login-social__title::after {
+    content: " ";
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    background-color: #999999a9;
+    top: 50%;
+    right: 0;
+}
+
+.login__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    padding-top: 2rem;
+}
+
+.login__footer a {
+    color: #ff837a;
+    font-weight: 500;
+}

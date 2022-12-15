@@ -9,7 +9,7 @@ class Project extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "title","desc","address"
+        "title","desc","address","images"
     ];
     protected $primaryKey = "id";
     protected $table = "project";

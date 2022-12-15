@@ -1,0 +1,193 @@
+.project {
+    width: 100%;
+    &__head {
+        background-color: #f8fbff;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 6%;
+        align-items: center;
+        height: 10rem;
+    }
+    &__heading h4 {
+        font-size: 2.4rem;
+        color: blue;
+    }
+    &__search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    &__search input {
+        height: 4rem;
+        width: 20rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #ccc;
+        outline: none;
+        font-size: 1.4rem;
+    }
+    &__search span {
+        background-color: green;
+        color: #fff;
+        font-size: 1.6rem;
+        height: 4rem;
+        width: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.5rem;
+        /* display: inline-block; */
+    }
+    &__wrapper {
+        margin-top: 2rem;
+    }
+    &__list {
+        margin-top: 1rem;
+    }
+    &__item {
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1.5rem;
+        height: 17rem;
+        border-radius: 0.3rem;
+    }
+    &__img {
+        width: 35rem;
+        height: 100%;
+    }
+    &__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #ccc;
+        padding-bottom: 2rem;
+    }
+    &__date {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        font-size: 1.2rem;
+        padding-bottom: 1rem;
+    }
+    &__date span {
+        color: #ccc;
+        font-weight: 600;
+        position: relative;
+    }
+    &__date span::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: #cccc;
+        top: 0;
+        right: -2rem;
+    }
+    &__date a {
+        color: $blue;
+    }
+    &__desc {
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+    &__main {
+        height: 50rem;
+    }
+    .card--primary img {
+        width: 100%;
+        height: 30rem;
+        object-fit: cover;
+    }
+    .card--secondary img {
+        width: 100%;
+        height: 15rem;
+        object-fit: cover;
+    }
+    .card--simple {
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+    }
+    .card--simple h2 {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    .card--simple p {
+        font-size: 1.4rem;
+        padding-bottom: 1rem;
+        padding-left: 2rem;
+        line-height: 1.5;
+    }
+    /* .card--simple img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    } */
+    .card--simple h2 {
+        color: #185785;
+        padding: 2rem;
+    }
+    .card--primary h2 {}
+    .card--secondary h2 {
+        font-size: 1.4rem;
+    }
+    &__item {
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1.5rem;
+        height: 17rem;
+        border-radius: 0.3rem;
+        margin-bottom: 2rem;
+    }
+    &__img {
+        width: 35rem;
+        height: 100%;
+    }
+    &__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #ccc;
+        padding-bottom: 2rem;
+    }
+    &__date {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        font-size: 1.2rem;
+        padding-bottom: 1rem;
+    }
+    &__date span {
+        color: #ccc;
+        font-weight: 600;
+        position: relative;
+    }
+    &__date span::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: #cccc;
+        top: 0;
+        right: -2rem;
+    }
+    &__date a {
+        text-decoration: none;
+    }
+    &__desc {
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+}

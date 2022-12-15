@@ -1,0 +1,320 @@
+.estate-sale {
+    background-color: #fafafa;
+    padding-top: 100px;
+}
+
+.estate-sale__head h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2384c7;
+    margin-bottom: 0.5rem;
+}
+
+.estate-sale__head p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #7d7d7d;
+}
+
+.estate-sale-head__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.estate-sale-head__info p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.estate-sale-head__info span {
+    color: blue;
+}
+
+.estate-sale__sort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.estate-sale__sort select {
+    width: 20rem;
+}
+
+.estate-sale__sort label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #7d7d7d;
+}
+
+.estate-sale__main {
+    margin-top: 2rem;
+}
+
+.estate-sale .estate-sale__card {
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    position: relative;
+}
+
+.estate-sale .estate-sale-card__top,
+.home-block .estate-sale-card__top {
+    position: relative;
+    height: 20rem;
+}
+
+.estate-sale__card:before {
+    background: url(http://diemchauland.com/wp-content/uploads/2019/04/new.gif) no-repeat right;
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+}
+
+.estate-sale .estate-sale-card__price {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 6rem;
+    height: 3rem;
+    left: 2rem;
+    bottom: -1.5rem;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 1.3rem;
+    color: #07a35d;
+}
+
+.estate-sale .estate-sale-card__area {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 6rem;
+    height: 3rem;
+    right: 2rem;
+    bottom: -1.5rem;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 1.3rem;
+    color: #07a35d;
+}
+
+.estate-sale .estate-sale-card__top {
+    height: 15rem;
+}
+
+.estate-sale .estate-sale-card__top img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.estate-sale-card__middle {
+    padding: 1.5rem;
+}
+
+.estate-sale .estate-sale-card__bottom {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.estate-sale .estate-sale-card__desc {
+    font-size: 1.4rem;
+    color: #004e7f;
+    font-weight: 500;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    padding-top: 1rem;
+}
+
+.estate-sale .estate-sale-card__location {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+.estate-sale .estate-sale-card__location i {
+    color: #2c2c2c;
+    font-size: 2rem;
+}
+
+.estate-sale .estate-sale-card__location span {
+    color: #2c2c2c;
+    font-size: 1.4rem;
+}
+
+.estate-sale .estate-sale-card__date {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #999999;
+}
+
+.estate-sale .estate-sale-card__btn-like {
+    background-color: #fafafa;
+    border-color: #cccccc;
+    border-radius: 4px;
+    border: 1px solid #2c2c2c94;
+    font-size: 1.4rem;
+    line-height: 1px;
+    padding: 0.7rem 0.7rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.estate-sale__search {}
+
+.estate-sale-search__tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.estate-sale-search__tabs li {
+    list-style: none;
+    width: 50%;
+    text-align: center;
+}
+
+.estate-sale-search__tabs li a {
+    width: 100%;
+    font-size: 2rem;
+    padding: 1rem;
+    display: inline-block;
+}
+
+.estate-sale-search__tabs .active {
+    background-color: #2384c7;
+    color: #fff;
+}
+
+.estate-sale-search__content {
+    background-color: #2384c7;
+    padding: 1rem;
+}
+
+.sidebar {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin: 4rem 0;
+}
+
+.sidebar__title {
+    text-align: center;
+}
+
+.sidebar h4 {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 2rem;
+    display: inline-block;
+    padding: 1rem 0;
+}
+
+.sidebar h4::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: blue;
+    top: -10px;
+    left: 0;
+}
+
+.sidebar__menu li {
+    list-style: none;
+    font-size: 1.4rem;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 0;
+}
+
+.sidebar__menu i {
+    font-size: 0.5rem;
+    color: green;
+    padding-right: 1rem;
+}
+
+.sidebar__menu a {
+    display: flex;
+    align-items: center;
+}
+
+.btn-showmore {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.new-more {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.new-more__heading {
+    text-align: center;
+}
+
+.new-more__heading h4 {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 2rem;
+    display: inline-block;
+    padding: 1rem 0;
+}
+
+.new-more__heading h4::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: blue;
+    top: -10px;
+    left: 0;
+}
+
+.new-more__list {
+    width: 100%;
+    padding-left: 0;
+}
+
+.new-more__list li {
+    border-top: 1px solid #ccc;
+    padding: 1rem 0;
+}
+
+.new-more__list img {
+    width: 100%;
+}
+
+.new-more__title {
+    font-size: 1.4rem;
+    color: #2384c7;
+    font-weight: 600;
+}

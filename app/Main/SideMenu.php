@@ -16,48 +16,12 @@ class SideMenu
             'dashboard' => [
                 'icon' => 'home',
                 'title' => 'Dashboard',
-                'sub_menu' => [
-                    'dashboard-overview-1' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'side-menu',
-                        ],
-                        'title' => 'Overview 1'
-                    ],
-                   
-                ]
+                'route_name' => 'admin/dashboard',
+                'params' => [
+                    'layout' => 'side-menu',
+                ],
             ],
-            'menu-layout' => [
-                'icon' => 'box',
-                'title' => 'Menu Layout',
-                'sub_menu' => [
-                    'side-menu' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'side-menu'
-                        ],
-                        'title' => 'Side Menu'
-                    ],
-                    'simple-menu' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'simple-menu'
-                        ],
-                        'title' => 'Simple Menu'
-                    ],
-                    'top-menu' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'top-menu'
-                        ],
-                        'title' => 'Top Menu'
-                    ]
-                ]
-            ],
+
             'account' => [
                 'icon' => 'shopping-bag',
                 'title' => 'Tài khoản',
@@ -66,9 +30,9 @@ class SideMenu
                         'icon' => '',
                         'route_name' => 'update-profile',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Cá nhân'
+                        'title' => 'Cá nhân',
                     ],
                     'system' => [
                         'icon' => '',
@@ -78,26 +42,23 @@ class SideMenu
                                 'icon' => '',
                                 'route_name' => 'add-user',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Thêm mới'
+                                'title' => 'Thêm mới',
                             ],
                             'all-user' => [
                                 'icon' => '',
                                 'route_name' => 'all-user',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Danh sách'
-                            ]
-                        ]
+                                'title' => 'Danh sách',
+                            ],
+                        ],
                     ],
-                  
-                 
-                   
-                ]
+                ],
             ],
-           
+
             'E-Commerce' => [
                 'icon' => 'shopping-bag',
                 'title' => 'Bài viết',
@@ -108,21 +69,21 @@ class SideMenu
                         'sub_menu' => [
                             'Thêm mới' => [
                                 'icon' => '',
-                                'route_name' => 'add-category',
+                                'route_name' => 'admin/add-category',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Thêm mới'
+                                'title' => 'Thêm mới',
                             ],
                             'all-cate' => [
                                 'icon' => '',
-                                'route_name' => 'all-cate',
+                                'route_name' => 'admin/all-cate',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Danh sách'
-                            ]
-                        ]
+                                'title' => 'Danh sách',
+                            ],
+                        ],
                     ],
                     'kinds' => [
                         'icon' => '',
@@ -130,43 +91,43 @@ class SideMenu
                         'sub_menu' => [
                             'transaction-list' => [
                                 'icon' => '',
-                                'route_name' => 'add-kind',
+                                'route_name' => 'admin/add-kind',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Thêm mới'
+                                'title' => 'Thêm mới',
                             ],
                             'Danh sách' => [
                                 'icon' => '',
-                                'route_name' => 'kinds',
+                                'route_name' => 'admin/all-kind',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Danh sách'
-                            ]
-                        ]
+                                'title' => 'Danh sách',
+                            ],
+                        ],
                     ],
-                    'news' => [
+                    'posts' => [
                         'icon' => '',
-                        'title' => 'Tin tức',
+                        'title' => 'Blog',
                         'sub_menu' => [
                             'add-post' => [
                                 'icon' => '',
-                                'route_name' => 'add-post',
+                                'route_name' => 'admin/add-post',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Đăng Bài'
+                                'title' => 'Thêm mới',
                             ],
                             'all-post' => [
                                 'icon' => '',
-                                'route_name' => 'all-post',
+                                'route_name' => 'admin/all-post',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Danh sách'
-                            ]
-                        ]
+                                'title' => 'Danh sách',
+                            ],
+                        ],
                     ],
                     'project' => [
                         'icon' => '',
@@ -174,88 +135,48 @@ class SideMenu
                         'sub_menu' => [
                             'add-project' => [
                                 'icon' => '',
-                                'route_name' => 'add-project',
+                                'route_name' => 'admin/add-project',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Đăng Bài'
+                                'title' => 'Đăng Bài',
                             ],
                             'all-project' => [
                                 'icon' => '',
-                                'route_name' => 'all-project',
+                                'route_name' => 'admin/all-project',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Danh sách'
-                            ]
-                        ]
-                    ],
-                 
-                   
-                ]
-            ],
-           
-            'post' => [
-                'icon' => 'file-text',
-                'route_name' => 'post',
-                'params' => [
-                    'layout' => 'side-menu'
-                ],
-                'title' => 'Post'
-            ],
-            'force' => [
-                'icon' => 'users',
-                'title' => 'Nhân sự',
-                'sub_menu' => [
-                    // 'position' => [
-                    //     'icon' => '',
-                    //     'title' => 'Chức vụ',
-                    //     'sub_menu' => [
-                    //         'Thêm mới' => [
-                    //             'icon' => '',
-                    //             'route_name' => 'add-position',
-                    //             'params' => [
-                    //                 'layout' => 'side-menu'
-                    //             ],
-                    //             'title' => 'Thêm mới'
-                    //         ],
-                    //         'Danh sách' => [
-                    //             'icon' => '',
-                    //             'route_name' => 'positions',
-                    //             'params' => [
-                    //                 'layout' => 'side-menu'
-                    //             ],
-                    //             'title' => 'Danh sách'
-                    //         ]
-                    //     ]
-                    // ],
-                    'employee' => [
-                        'icon' => '',
-                        'title' => 'Nhân viên',
-                        'sub_menu' => [
-                            'add-employee' => [
-                                'icon' => '',
-                                'route_name' => 'add-employee',
-                                'params' => [
-                                    'layout' => 'side-menu'
-                                ],
-                                'title' => 'Thêm mới'
+                                'title' => 'Danh sách',
                             ],
-                            'all-employee' => [
-                                'icon' => '',
-                                'route_name' => 'all-employee',
-                                'params' => [
-                                    'layout' => 'side-menu'
-                                ],
-                                'title' => 'Danh sách'
-                            ]
-                        ]
+                        ],
                     ],
-                   
-                 
-                   
-                ]
+                ],
             ],
+
+            'employee' => [
+                'icon' => '',
+                'title' => 'Nhân viên',
+                'sub_menu' => [
+                    'add-employee' => [
+                        'icon' => '',
+                        'route_name' => 'admin/add-employee',
+                        'params' => [
+                            'layout' => 'side-menu',
+                        ],
+                        'title' => 'Thêm mới',
+                    ],
+                    'all-employee' => [
+                        'icon' => '',
+                        'route_name' => 'admin/all-employee',
+                        'params' => [
+                            'layout' => 'side-menu',
+                        ],
+                        'title' => 'Danh sách',
+                    ],
+                ],
+            ],
+
             'users' => [
                 'icon' => 'users',
                 'title' => 'Users',
@@ -264,27 +185,27 @@ class SideMenu
                         'icon' => '',
                         'route_name' => 'users-layout-1',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Layout 1'
+                        'title' => 'Layout 1',
                     ],
                     'users-layout-2' => [
                         'icon' => '',
                         'route_name' => 'users-layout-2',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Layout 2'
+                        'title' => 'Layout 2',
                     ],
                     'users-layout-3' => [
                         'icon' => '',
                         'route_name' => 'users-layout-3',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Layout 3'
-                    ]
-                ]
+                        'title' => 'Layout 3',
+                    ],
+                ],
             ],
             'profile' => [
                 'icon' => 'trello',
@@ -294,27 +215,27 @@ class SideMenu
                         'icon' => '',
                         'route_name' => 'profile-overview-1',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Overview 1'
+                        'title' => 'Overview 1',
                     ],
                     'profile-overview-2' => [
                         'icon' => '',
                         'route_name' => 'profile-overview-2',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Overview 2'
+                        'title' => 'Overview 2',
                     ],
                     'profile-overview-3' => [
                         'icon' => '',
                         'route_name' => 'profile-overview-3',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Overview 3'
-                    ]
-                ]
+                        'title' => 'Overview 3',
+                    ],
+                ],
             ],
             'pages' => [
                 'icon' => 'layout',
@@ -328,27 +249,27 @@ class SideMenu
                                 'icon' => '',
                                 'route_name' => 'wizard-layout-1',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 1'
+                                'title' => 'Layout 1',
                             ],
                             'wizard-layout-2' => [
                                 'icon' => '',
                                 'route_name' => 'wizard-layout-2',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 2'
+                                'title' => 'Layout 2',
                             ],
                             'wizard-layout-3' => [
                                 'icon' => '',
                                 'route_name' => 'wizard-layout-3',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 3'
-                            ]
-                        ]
+                                'title' => 'Layout 3',
+                            ],
+                        ],
                     ],
                     'blog' => [
                         'icon' => '',
@@ -358,27 +279,27 @@ class SideMenu
                                 'icon' => '',
                                 'route_name' => 'blog-layout-1',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 1'
+                                'title' => 'Layout 1',
                             ],
                             'blog-layout-2' => [
                                 'icon' => '',
                                 'route_name' => 'blog-layout-2',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 2'
+                                'title' => 'Layout 2',
                             ],
                             'blog-layout-3' => [
                                 'icon' => '',
                                 'route_name' => 'blog-layout-3',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 3'
-                            ]
-                        ]
+                                'title' => 'Layout 3',
+                            ],
+                        ],
                     ],
                     'pricing' => [
                         'icon' => '',
@@ -388,19 +309,19 @@ class SideMenu
                                 'icon' => '',
                                 'route_name' => 'pricing-layout-1',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 1'
+                                'title' => 'Layout 1',
                             ],
                             'pricing-layout-2' => [
                                 'icon' => '',
                                 'route_name' => 'pricing-layout-2',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 2'
-                            ]
-                        ]
+                                'title' => 'Layout 2',
+                            ],
+                        ],
                     ],
                     'invoice' => [
                         'icon' => '',
@@ -410,19 +331,19 @@ class SideMenu
                                 'icon' => '',
                                 'route_name' => 'invoice-layout-1',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 1'
+                                'title' => 'Layout 1',
                             ],
                             'invoice-layout-2' => [
                                 'icon' => '',
                                 'route_name' => 'invoice-layout-2',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 2'
-                            ]
-                        ]
+                                'title' => 'Layout 2',
+                            ],
+                        ],
                     ],
                     'faq' => [
                         'icon' => '',
@@ -432,62 +353,62 @@ class SideMenu
                                 'icon' => '',
                                 'route_name' => 'faq-layout-1',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 1'
+                                'title' => 'Layout 1',
                             ],
                             'faq-layout-2' => [
                                 'icon' => '',
                                 'route_name' => 'faq-layout-2',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 2'
+                                'title' => 'Layout 2',
                             ],
                             'faq-layout-3' => [
                                 'icon' => '',
                                 'route_name' => 'faq-layout-3',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Layout 3'
-                            ]
-                        ]
+                                'title' => 'Layout 3',
+                            ],
+                        ],
                     ],
                     'login' => [
                         'icon' => '',
                         'route_name' => 'login',
                         'params' => [
-                            'layout' => 'login'
+                            'layout' => 'login',
                         ],
-                        'title' => 'Login'
+                        'title' => 'Login',
                     ],
                     'register' => [
                         'icon' => '',
                         'route_name' => 'register',
                         'params' => [
-                            'layout' => 'login'
+                            'layout' => 'login',
                         ],
-                        'title' => 'Register'
+                        'title' => 'Register',
                     ],
                     'error-page' => [
                         'icon' => '',
                         'route_name' => 'error-page',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Error Page'
+                        'title' => 'Error Page',
                     ],
-                   
+
                     'change-password' => [
                         'icon' => '',
                         'route_name' => 'change-password',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Change Password'
-                    ]
-                ]
+                        'title' => 'Change Password',
+                    ],
+                ],
             ],
             'devider',
             'components' => [
@@ -502,19 +423,19 @@ class SideMenu
                                 'icon' => '',
                                 'route_name' => 'regular-table',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Regular Table'
+                                'title' => 'Regular Table',
                             ],
                             'tabulator' => [
                                 'icon' => '',
                                 'route_name' => 'tabulator',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Tabulator'
-                            ]
-                        ]
+                                'title' => 'Tabulator',
+                            ],
+                        ],
                     ],
                     'overlay' => [
                         'icon' => '',
@@ -524,109 +445,109 @@ class SideMenu
                                 'icon' => '',
                                 'route_name' => 'modal',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Modal'
+                                'title' => 'Modal',
                             ],
                             'slide-over' => [
                                 'icon' => '',
                                 'route_name' => 'slide-over',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Slide Over'
+                                'title' => 'Slide Over',
                             ],
                             'notification' => [
                                 'icon' => '',
                                 'route_name' => 'notification',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Notification'
+                                'title' => 'Notification',
                             ],
-                        ]
+                        ],
                     ],
                     'tab' => [
                         'icon' => '',
                         'route_name' => 'tab',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Tab'
+                        'title' => 'Tab',
                     ],
                     'accordion' => [
                         'icon' => '',
                         'route_name' => 'accordion',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Accordion'
+                        'title' => 'Accordion',
                     ],
                     'button' => [
                         'icon' => '',
                         'route_name' => 'button',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Button'
+                        'title' => 'Button',
                     ],
                     'alert' => [
                         'icon' => '',
                         'route_name' => 'alert',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Alert'
+                        'title' => 'Alert',
                     ],
                     'progress-bar' => [
                         'icon' => '',
                         'route_name' => 'progress-bar',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Progress Bar'
+                        'title' => 'Progress Bar',
                     ],
                     'tooltip' => [
                         'icon' => '',
                         'route_name' => 'tooltip',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Tooltip'
+                        'title' => 'Tooltip',
                     ],
                     'dropdown' => [
                         'icon' => '',
                         'route_name' => 'dropdown',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Dropdown'
+                        'title' => 'Dropdown',
                     ],
                     'typography' => [
                         'icon' => '',
                         'route_name' => 'typography',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Typography'
+                        'title' => 'Typography',
                     ],
                     'icon' => [
                         'icon' => '',
                         'route_name' => 'icon',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Icon'
+                        'title' => 'Icon',
                     ],
                     'loading-icon' => [
                         'icon' => '',
                         'route_name' => 'loading-icon',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Loading Icon'
-                    ]
-                ]
+                        'title' => 'Loading Icon',
+                    ],
+                ],
             ],
             'forms' => [
                 'icon' => 'sidebar',
@@ -636,33 +557,33 @@ class SideMenu
                         'icon' => '',
                         'route_name' => 'regular-form',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Regular Form'
+                        'title' => 'Regular Form',
                     ],
                     'datepicker' => [
                         'icon' => '',
                         'route_name' => 'datepicker',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Datepicker'
+                        'title' => 'Datepicker',
                     ],
                     'tom-select' => [
                         'icon' => '',
                         'route_name' => 'tom-select',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Tom Select'
+                        'title' => 'Tom Select',
                     ],
                     'file-upload' => [
                         'icon' => '',
                         'route_name' => 'file-upload',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'File Upload'
+                        'title' => 'File Upload',
                     ],
                     'wysiwyg-editor' => [
                         'icon' => '',
@@ -672,53 +593,53 @@ class SideMenu
                                 'icon' => '',
                                 'route_name' => 'wysiwyg-editor-classic',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Classic'
+                                'title' => 'Classic',
                             ],
                             'wysiwyg-editor-inline' => [
                                 'icon' => '',
                                 'route_name' => 'wysiwyg-editor-inline',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Inline'
+                                'title' => 'Inline',
                             ],
                             'wysiwyg-editor-balloon' => [
                                 'icon' => '',
                                 'route_name' => 'wysiwyg-editor-balloon',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Balloon'
+                                'title' => 'Balloon',
                             ],
                             'wysiwyg-editor-balloon-block' => [
                                 'icon' => '',
                                 'route_name' => 'wysiwyg-editor-balloon-block',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Balloon Block'
+                                'title' => 'Balloon Block',
                             ],
                             'wysiwyg-editor-document' => [
                                 'icon' => '',
                                 'route_name' => 'wysiwyg-editor-document',
                                 'params' => [
-                                    'layout' => 'side-menu'
+                                    'layout' => 'side-menu',
                                 ],
-                                'title' => 'Document'
+                                'title' => 'Document',
                             ],
-                        ]
+                        ],
                     ],
                     'validation' => [
                         'icon' => '',
                         'route_name' => 'validation',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Validation'
-                    ]
-                ]
+                        'title' => 'Validation',
+                    ],
+                ],
             ],
             'widgets' => [
                 'icon' => 'hard-drive',
@@ -728,28 +649,28 @@ class SideMenu
                         'icon' => '',
                         'route_name' => 'chart',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Chart'
+                        'title' => 'Chart',
                     ],
                     'slider' => [
                         'icon' => '',
                         'route_name' => 'slider',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Slider'
+                        'title' => 'Slider',
                     ],
                     'image-zoom' => [
                         'icon' => '',
                         'route_name' => 'image-zoom',
                         'params' => [
-                            'layout' => 'side-menu'
+                            'layout' => 'side-menu',
                         ],
-                        'title' => 'Image Zoom'
-                    ]
-                ]
-            ]
+                        'title' => 'Image Zoom',
+                    ],
+                ],
+            ],
         ];
     }
 }

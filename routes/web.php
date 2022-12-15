@@ -15,6 +15,8 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\FileUpload;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SaleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,29 +58,36 @@ Route::middleware('auth')->group(function () {
         Route::post('save-user', 'saveUser')->name('save-user');
     });
     Route::controller(CategoryController::class)->group(function () {
-        Route::get('add-category', 'addCategory')->name('add-category');
-        Route::get('all-cate', 'allCate')->name('all-cate');
-        Route::post('save-category', 'saveCategory')->name('save-category');
-        Route::get('/edit-cate/{cate_id}', 'editCate');
-        Route::post('/update-cate/{cate_id}', 'updateCate');
-        Route::get('/delete-cate/{cate_id}', 'deleteCate');
+        Route::get('admin/add-category', 'addCategory')->name('admin/add-category');
+        Route::get('admin/all-cate', 'allCate')->name('admin/all-cate');
+        Route::post('save-category', 'saveCategory')->name('admin/save-category');
+        Route::get('admin/edit-cate/{cate_id}', 'editCate');
+        Route::post('admin/update-cate/{cate_id}', 'updateCate');
+        Route::get('admin/delete-cate/{cate_id}', 'deleteCate');
     });
 
     Route::controller(KindController::class)->group(function () {
-        Route::get('add-kind', 'addKind')->name('add-kind');
-        Route::get('kinds', 'kinds')->name('kinds');
-        Route::post('save-kind', 'saveKind')->name('save-kind');
+        Route::get('admin/add-kind', 'addKind')->name('admin/add-kind');
+        Route::get('admin/delete-kind/{kind_id}', 'deleteKind')->name('admin/delete-kind/{kind_id}');
+        Route::get('admin/edit-kind/{kind_id}', 'editKind');
+        Route::get('admin/all-kind', 'allKind')->name('admin/all-kind');
+        Route::post('admin/save-kind', 'saveKind')->name('admin/save-kind');
+        Route::post('admin/update-kind/{kind_id}', 'updateKind')->name('admin/update-kind');
     });
     Route::controller(PostController::class)->group(function () {
-        Route::get('add-post', 'addPost')->name('add-post');
-        Route::get('all-post', 'allPost')->name('all-post');
-        Route::post('save-post', 'savePost')->name('save-post');
-        Route::get('save-image', 'saveImage')->name('save-image');
+        Route::get('admin/add-post', 'addPostAdmin')->name('admin/add-post');
+        Route::get('admin/all-post', 'allPostadmin')->name('admin/all-post');
+        Route::post('admin/save-post', 'savePostAdmin')->name('admin/save-post');
+        Route::post('storeMultipleImage', 'storeMultipleImage')->name('storeMultipleImage');
     });
     Route::controller(ProjectController::class)->group(function () {
-        Route::get('add-project', 'addProject')->name('add-project');
-        Route::get('all-project', 'allProject')->name('all-project');
-        Route::post('save-project', 'saveProject')->name('save-project');
+        Route::get('admin/add-project', 'addProject')->name('admin/add-project');
+        Route::get('admin/all-project', 'allProjectAdmin')->name('admin/all-project');
+        Route::post('admin/save-project', 'saveProject')->name('admin/save-project');
+        Route::post('project/storeMultipleImage', 'storeMultipleImage')->name('project/storeMultipleImage');
+        Route::get('admin/delete-project/{project_id}', 'deleteProject')->name('admin/delete-project/{project_id}');
+        Route::get('admin/edit-project/{project_id}', 'editProject');
+        Route::post('admin/update-project/{project_id}', 'updateProject');
     });
     // Route::controller(PositionController::class)->group(function() {
     //     Route::get('add-positon','addPositon')->name('add-positon');
@@ -86,14 +95,16 @@ Route::middleware('auth')->group(function () {
     //     Route::post('save-positon','savePositon')->name('save-positon');
     // });
     Route::controller(EmployeeController::class)->group(function () {
-        Route::get('add-employee', 'addEmployee')->name('add-employee');
-        Route::get('all-employee', 'allEmployee')->name('all-employee');
-        Route::post('save-employee', 'saveEmployee')->name('save-employee');
+        Route::get('admin/add-employee', 'addEmployee')->name('admin/add-employee');
+        Route::get('admin/all-employee', 'allEmployee')->name('admin/all-employee');
+        Route::post('admin/save-employee', 'saveEmployee')->name('admin/save-employee');
+        Route::get('admin/delete-employee/{employee_id}', 'deleteEmployee')->name('admin/delete-employee/{employee_id}');
+        Route::get('admin/edit-employee/{employee_id}', 'editEmployee');
+        Route::post('admin/update-employee/{employee_id}', 'updateEmployee');
     });
 
     Route::controller(PageController::class)->group(function () {
-        Route::get('/', 'dashboardOverview1')->name('dashboard-overview-1');
-
+        Route::get('/admin/dashboard', 'dashboard')->name('admin/dashboard');
         Route::get('product-grid-page', 'productGrid')->name('product-grid');
         Route::get('transaction-list-page', 'transactionList')->name('transaction-list');
         Route::get('transaction-detail-page', 'transactionDetail')->name('transaction-detail');
@@ -162,3 +173,48 @@ Route::middleware('auth')->group(function () {
         Route::get('image-zoom-page', 'imageZoom')->name('image-zoom');
     });
 });
+
+// user
+
+
+Route::get('/', [HomeController::class, 'index']);
+// Route::get('/dang-tin', [PostController::class, 'addPost']);
+// Route::post('/post-save', [PostController::class, 'savePost'])->name('form.data');
+// Route::post('/storeMultipleImage', [PostController::class, 'storeMultipleImage']);
+// Route::get('/quan-ly-tin-rao-ban-cho-thue', [PostController::class, 'listPost']);
+// Route::get('/chi-tiet-bai-viet/{post_id}', [PostController::class, 'detail']);
+
+// Route::get('/dang-nhap', [AuthController::class, 'login']);
+// Route::get('/dang-ky', [AuthController::class, 'register']);
+
+Route::get('/nha-dat-ban', [SaleController::class, 'index']);
+Route::get('/nha-dat-ban/1',  [
+    DetailController::class,
+     "index"
+ ]);
+
+Route::post('/save-login', [AuthController::class, 'save_login']);
+
+Route::post('/save-register', [AuthController::class, 'save_register']);
+
+//Login facebook
+Route::get('/login-facebook', [AuthController::class, 'login_facebook']);
+Route::get('/admin/callback', [AuthController::class, 'callback_facebook']);
+
+//new
+
+Route::get('/tin-tuc', [NewController::class, 'new']);
+Route::get('/tin-tuc-du-an', [NewController::class, 'project']);
+
+
+// Route::get('/profile', [ProfileController::class, 'profile']);
+// Route::post('/profile-save', [ProfileController::class, 'profileSave'])->name('form.data');
+// // Route::post('/storeimage', [ProfileController::class, 'storeImage']);
+// Route::post('/storeMultipleImage', [ProfileController::class, 'storeMultipleImage']);
+
+
+
+Route::get('/danh-sach-du-an-bat-dong-san', [ProjectController::class, 'allProject']);
+Route::get('/du-an/{project_id}', [ProjectController::class, 'detailProject']);
+
+// Route::get('/chi-tiet-bai-viet/{post_id}', [DetailController::class, 'detail']);

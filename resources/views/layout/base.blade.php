@@ -17,6 +17,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{ asset('build/assets/images/logo.svg') }}" rel="shortcut icon">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 
 
     <meta name="csrf-token" content="{{ csrf_token() }}">

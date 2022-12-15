@@ -17,12 +17,11 @@ class PositionController extends Controller
     DB::table('categories')->insert($data);
     return redirect("/categories");
   
-    //    return view('pages/add-category');
     }
-    public function addCategory()
-    {
-        return view('pages/add-category');
-    }
+    // public function addCategory()
+    // {
+    //     return view('pages/add-category');
+    // }
     public function categories()
     {
         $all_categories = DB::table('categories')->get();

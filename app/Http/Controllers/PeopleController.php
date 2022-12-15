@@ -22,7 +22,7 @@ class PeopleController extends Controller
                 ->make(true);
         }
  
-        return view('pages.cate.all-cate');
+        return view('pages.admin.cate.all-cate');
     }
  
     public function store(Request $request)

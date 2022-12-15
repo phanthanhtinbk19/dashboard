@@ -1,0 +1,74 @@
+@import "./variables";
+@import "./home.scss";
+@import "./header.scss";
+@import "./card.scss";
+@import "./footer.scss";
+@import "./login.scss";
+@import "./register.scss";
+@import "./post.scss";
+@import "./sale.scss";
+@import "./sidebar.scss";
+@import "./pagination.scss";
+@import "./new.scss";
+@import "./project.scss";
+@import "./detail.scss";
+@import "./popup.scss";
+@import "./post-modal.scss";
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+li {
+    list-style: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.heading {
+    font-size: 2rem;
+    color: $blue;
+    padding: 1.2rem 0;
+    text-transform: uppercase;
+}
+
+.sub-heading {
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+section {
+    padding-bottom: 1.5rem;
+}
+
+.see-more {
+    color: $red;
+    font-size: $size-text;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main {
+    margin-top: 8.4rem;
+}
+
+@media (min-width: 1024px)
+{
+    .container {
+        max-width: 1140px !important;
+    }
+}
