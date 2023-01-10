@@ -151,6 +151,28 @@ class SideMenu
                             ],
                         ],
                     ],
+                    'news' => [
+                        'icon' => '',
+                        'title' => 'Tin tức',
+                        'sub_menu' => [
+                            'add-new' => [
+                                'icon' => '',
+                                'route_name' => 'admin/add-new',
+                                'params' => [
+                                    'layout' => 'side-menu',
+                                ],
+                                'title' => 'Đăng Bài',
+                            ],
+                            'all-new' => [
+                                'icon' => '',
+                                'route_name' => 'admin/all-new',
+                                'params' => [
+                                    'layout' => 'side-menu',
+                                ],
+                                'title' => 'Danh sách',
+                            ],
+                        ],
+                    ],
                 ],
             ],
 

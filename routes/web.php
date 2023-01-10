@@ -17,6 +17,7 @@ use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\NewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,11 +101,15 @@ Route::controller(ProjectController::class)->group(function () {
     Route::get('admin/edit-project/{project_id}', 'editProject');
     Route::post('admin/update-project/{project_id}', 'updateProject');
 });
-// Route::controller(PositionController::class)->group(function() {
-//     Route::get('add-positon','addPositon')->name('add-positon');
-//     Route::get('positons','Positons')->name('positons');
-//     Route::post('save-positon','savePositon')->name('save-positon');
-// });
+Route::controller(NewController::class)->group(function () {
+    Route::get('admin/add-new', 'addNew')->name('admin/add-new');
+    Route::get('admin/all-new', 'allNew')->name('admin/all-new');
+    Route::post('admin/save-new', 'saveNew')->name('admin/save-new');
+    Route::post('storeMultipleImage', 'storeMultipleImage')->name('new/storeMultipleImage');
+    Route::get('admin/delete-new/{new_id}', 'deleteNew')->name('admin/delete-new/{new_id}');
+    Route::get('admin/edit-new/{new_id}', 'editNew');
+    Route::post('admin/update-new/{new_id}', 'updateNew');
+});
 Route::controller(EmployeeController::class)->group(function () {
     Route::get('admin/add-employee', 'addEmployee')->name('admin/add-employee');
     Route::get('admin/all-employee', 'allEmployee')->name('admin/all-employee');

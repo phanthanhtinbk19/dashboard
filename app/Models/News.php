@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class News extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "title","desc","address","images","price","area"
-    ];
-    protected $primaryKey = "id";
-    protected $table = "projects";
+        "title","desc","images"
+     
+     ];
+  
+     protected $primaryKey = 'id';
+      protected $table = 'news';
 }

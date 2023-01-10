@@ -1,4 +1,4 @@
-@extends('layout.layout')
+{{-- @extends('layout.layout')
 @section('content')
 
 <div class="container-fluid">
@@ -742,4 +742,4 @@ if (this.value != "") {
 
 </script>
 
-@endsection
+@endsection --}}

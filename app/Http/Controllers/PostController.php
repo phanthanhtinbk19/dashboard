@@ -32,7 +32,6 @@ class PostController extends Controller
     {
         try {
             $imageArr = [];
-            dd($request->file('file'));
             foreach ($request->file('file') as $file) {
                 $postid = $request->postid;
                 $post_image = new Post();
@@ -83,25 +82,25 @@ class PostController extends Controller
         return view('pages.user.post-management');
     }
 
-    public function savePost(Request $request)
-    {
-        try {
-            $post = new Post();
-            $post->title = $request->title;
-            $post->desc = $request->desc;
-            $post->category_id = $request->category_id;
-            $post->kind_id = $request->kind_id;
-            $post->price = $request->price;
-            $post->area = $request->area;
-            $post->address = $request->address;
-            $post->save();
-            $post_id = $post->id; // this give us the last inserted record id
-        } catch (\Exception $e) {
-            return response()->json(['status' => 'exception', 'msg' => $e->getMessage()]);
-        }
+    // public function savePost(Request $request)
+    // {
+    //     try {
+    //         $post = new Post();
+    //         $post->title = $request->title;
+    //         $post->desc = $request->desc;
+    //         $post->category_id = $request->category_id;
+    //         $post->kind_id = $request->kind_id;
+    //         $post->price = $request->price;
+    //         $post->area = $request->area;
+    //         $post->address = $request->address;
+    //         $post->save();
+    //         $post_id = $post->id; // this give us the last inserted record id
+    //     } catch (\Exception $e) {
+    //         return response()->json(['status' => 'exception', 'msg' => $e->getMessage()]);
+    //     }
 
-        return response()->json(['status' => 'success', 'post_id' => $post_id]);
-    }
+    //     return response()->json(['status' => 'success', 'post_id' => $post_id]);
+    // }
   
     public function detailPost($post_id)
     {

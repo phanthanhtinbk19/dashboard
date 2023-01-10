@@ -50,6 +50,7 @@
                                         <div class="box-search__item">
                                             <select class="form-select form-select-lg mb-3"
                                                 aria-label=".form-select-lg example">
+                                                <option value="">Trên toàn quốc</option>
                                             </select>
                                             {{-- <div class="popup-filter">
                                                 <h3>Khu vực & Dự án</h3>
@@ -114,6 +115,7 @@
                                         <div class="box-search__item">
                                             <select class="form-select form-select-lg mb-3"
                                                 aria-label=".form-select-lg example">
+                                                <option selected>Lọc thêm</option>
                                             </select>
                                             {{-- <div class="popup-filter">
                                                 <div class="popup-filter__list">
@@ -178,142 +180,70 @@
             <div class="new-more__content">
                 <div class="row gx-5">
                     <div class="col-sm-6">
+                        @foreach ($all_new as $key => $new)
+                        @if($key==0)
                         <div class="new-more__left">
                             <div class="new-more__img">
-                                <img src="{{url("frontend/images/20210104090853-b8b5-5cce.png")}}" alt="">
+                                @foreach (explode(",",$new->images) as $key => $image)
+                                @if($key == 0)
+                                <img src="{{url("/uploads/images/$image")}}" />
+                                @endif
+                                @endforeach
                             </div>
                             <div class="new-more__info--lg">
                                 <h3 class="new-more__title--lg">
-                                    [Infographic] So sánh ưu nhược điểm để chọn mua căn hộ tầng cao hay tầng thấp
+                                    {{$new->title}}
                                 </h3>
                                 <div class="new-more__time">
                                     <i class="fa-regular fa-calendar"></i>
-                                    <span>04/01/2021</span>
+                                    <span>{{ date("d M Y", strtotime($new->created_at)) }}</span>
                                 </div>
-                                <p class="new-more__desc">
-                                    Khi mua nhà chung cư, đứng trước lựa chọn giữa căn hộ tầng thấp hay tầng cao
-                                    nhiều
-                                    khi
-                                    cũng
-                                    khiến các gia đình tốn nhiều thời ...
-                                </p>
+                                <div class="tt" style="font-size:14px">
+                                    {!! html_entity_decode(nl2br(e($new->desc))) !!}
+                                </div>
+
                             </div>
                         </div>
+                        @endif
+                        @endforeach
                     </div>
                     <div class="col-sm-6">
                         <div class="new-more__right">
+                            @foreach ($all_new as $key => $new)
+                            @if($key>0)
                             <div class="new-more__item ">
                                 <div class="row pb-4">
                                     <div class="col-sm-4">
                                         <div class="new-more__img ">
-                                            <img src="{{url("frontend/images/20201230082752-67af-ab04.png")}}" alt=" ">
+                                            @foreach (explode(",",$new->images) as $key => $image)
+                                            @if($key == 0)
+                                            <img style="height:120px" src="{{url("/uploads/images/$image")}}" />
+                                            @endif
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="new-more__info">
                                             <h3 class="new-more__title ">
-                                                [Infographic] Mua nhà xây sẵn hay mua đất rồi tự xây?
+                                                {{$new->title}}
                                             </h3>
                                             <div class="new-more__time ">
                                                 <i class="fa-regular fa-calendar "></i>
-                                                <span>04/01/2021</span>
+                                                <span>{{ date("d M Y", strtotime($new->created_at)) }}</span>
                                             </div>
-                                            <p class="new-more__desc">
-                                                Nếu vẫn còn phân vân lựa chọn giữa việc mua nhà xây sẵn hay mua đất rồi
-                                                tự
-                                                xây,
-                                                bạn
-                                                có
-                                                thể tham khảo ...
-                                            </p>
+                                            <div class="tt" style="font-size:14px">
+                                                {!! html_entity_decode(nl2br(e($new->desc))) !!}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="new-more__item ">
-                                <div class="row pb-4">
-                                    <div class="col-sm-4">
-                                        <div class="new-more__img ">
-                                            <img src="{{url("frontend/images/20201230082752-67af-ab04.png")}}" alt=" ">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="new-more__info">
-                                            <h3 class="new-more__title ">
-                                                [Infographic] Mua nhà xây sẵn hay mua đất rồi tự xây?
-                                            </h3>
-                                            <div class="new-more__time ">
-                                                <i class="fa-regular fa-calendar "></i>
-                                                <span>04/01/2021</span>
-                                            </div>
-                                            <p class="new-more__desc">
-                                                Nếu vẫn còn phân vân lựa chọn giữa việc mua nhà xây sẵn hay mua đất rồi
-                                                tự
-                                                xây,
-                                                bạn
-                                                có
-                                                thể tham khảo ...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="new-more__item ">
-                                <div class="row pb-4">
-                                    <div class="col-sm-4">
-                                        <div class="new-more__img ">
-                                            <img src="{{url("frontend/images/20201230082752-67af-ab04.png")}}" alt=" ">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="new-more__info">
-                                            <h3 class="new-more__title ">
-                                                [Infographic] Mua nhà xây sẵn hay mua đất rồi tự xây?
-                                            </h3>
-                                            <div class="new-more__time ">
-                                                <i class="fa-regular fa-calendar "></i>
-                                                <span>04/01/2021</span>
-                                            </div>
-                                            <p class="new-more__desc">
-                                                Nếu vẫn còn phân vân lựa chọn giữa việc mua nhà xây sẵn hay mua đất rồi
-                                                tự
-                                                xây,
-                                                bạn
-                                                có
-                                                thể tham khảo ...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="new-more__item ">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="new-more__img ">
-                                            <img src="{{url("frontend/images/20201230082752-67af-ab04.png")}}" alt=" ">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="new-more__info">
-                                            <h3 class="new-more__title ">
-                                                [Infographic] Mua nhà xây sẵn hay mua đất rồi tự xây?
-                                            </h3>
-                                            <div class="new-more__time ">
-                                                <i class="fa-regular fa-calendar "></i>
-                                                <span>04/01/2021</span>
-                                            </div>
-                                            <p class="new-more__desc">
-                                                Nếu vẫn còn phân vân lựa chọn giữa việc mua nhà xây sẵn hay mua đất rồi
-                                                tự
-                                                xây,
-                                                bạn
-                                                có
-                                                thể tham khảo ...
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endif
+
+
+                            @endforeach
+
+
 
                         </div>
                     </div>
@@ -358,9 +288,13 @@
             </div>
             <div class="new-project__content">
                 <div class="row g-4 ">
+                    @foreach ($all_project as $key => $project)
                     <div class="col-sm-3 ">
-                        <x-card-project></x-card-project>
+                        <x-card-project projectIds="{{$project->id}}" title="{{$project->title}}"
+                            price="{{$project->price}}" area="{{$project->area}}" images="{{$project->images}}"
+                            address="{{$project->address}}" time="{{$project->created_at}}"></x-card-project>
                     </div>
+                    @endforeach
 
                 </div>
             </div>

@@ -20,6 +20,8 @@ class ProjectController extends Controller
             $project->title = $request->title;
             $project->desc = $request->desc;
             $project->address = $request->address;
+            $project->price = $request->price;
+            $project->area = $request->area;
             $project->save();
             $project_id = $project->id;
             toastr()->success('Data has been saved successfully!', 'Congrats');

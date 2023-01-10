@@ -1,7 +1,7 @@
 @extends('../layout/' . $layout)
 
 @section('subhead')
-<title>project List - Midone - Tailwind HTML Admin Template</title>
+<title>new List - Midone - Tailwind HTML Admin Template</title>
 @endsection
 <style>
     .desc,
@@ -19,11 +19,11 @@
     }
 </style>
 @section('subcontent')
-<h2 class="intro-y text-lg font-medium mt-10">Project List</h2>
+<h2 class="intro-y text-lg font-medium mt-10">New List</h2>
 <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
         <button class="btn btn-primary shadow-md mr-2">
-            <a href="{{'/admin/add-project'}}">Add New Project</a>
+            <a href="{{'/admin/add-new'}}">Add New</a>
         </button>
         <div class="dropdown">
             <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
@@ -66,9 +66,6 @@
                     <th class="whitespace-nowrap">Title</th>
                     <th class="whitespace-nowrap">image</th>
                     <th class="whitespace-nowrap">Desc</th>
-                    <th class="whitespace-nowrap">Price</th>
-                    <th class="whitespace-nowrap">Area</th>
-                    <th class="whitespace-nowrap">address</th>
                     <th class="whitespace-nowrap">Created At</th>
                     <th class="whitespace-nowrap">Created By</th>
                     <th class="whitespace-nowrap">Action</th>
@@ -76,21 +73,20 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($projects as $key => $project)
+                @foreach ($news as $key => $new)
                 <tr class="intro-x">
                     <td class="w-10">
                         <input class="form-check-input" type="checkbox">
                     </td>
                     <td class="w-40 !py-4">
-                        <span class="font-medium whitespace-nowrap">{{$project->id}}</span>
+                        <span class="font-medium whitespace-nowrap">{{$new->id}}</span>
                     </td>
                     <td class="w-40">
-                        <span class="font-medium whitespace-nowrap title"
-                            title="{{$project->title}}">{{$project->title}}</span>
+                        <span class="font-medium whitespace-nowrap title" title="{{$new->title}}">{{$new->title}}</span>
                     </td>
                     <td class="w-40">
                         <div class="flex">
-                            @foreach (explode(",", $project->images) as $key => $image)
+                            @foreach (explode(",", $new->images) as $key => $image)
                             <div class="w-10 h-10 image-fit zoom-in ">
                                 <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="{{url("uploads/images/$image")}}">
                             </div>
@@ -99,9 +95,9 @@
                     </td>
 
                     <td class="w-40">
-                        <div class="font-medium whitespace-nowrap desc" title="{{$project->desc}}">
+                        <div class="font-medium whitespace-nowrap desc" title="{{$new->desc}}">
                             <?php 
-                                echo htmlspecialchars_decode($project->desc);
+                                echo htmlspecialchars_decode($new->desc);
                                 ?>
 
                         </div>
@@ -109,34 +105,22 @@
 
 
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap address">{{$project->price}}</span>
-                    </td>
-                    <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap address">{{$project->area}}</span>
-                    </td>
-                    <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap address">{{$project->address}}</span>
-                    </td>
-
-
-
-                    <td class="w-40">
                         <span href="" class="font-medium whitespace-nowrap">
-                            {{$project->created_at}}
+                            {{$new->created_at}}
                         </span>
                     </td>
                     <td class="w-40">
                         <span href="" class="font-medium whitespace-nowrap">
-                            {{$project->updated_at}}
+                            {{$new->updated_at}}
                         </span>
                     </td>
 
                     <td class="table-report__action w-56">
                         <div class="flex justify-center items-center">
-                            <a class="flex items-center mr-3" href="{{(" /admin/edit-project/$project->id")}}">
+                            <a class="flex items-center mr-3" href="{{(" /admin/edit-new/$new->id")}}">
                                 <i data-lucide="check-square" class="w-4 h-4 mr-1"></i> Edit
                             </a>
-                            <a class="flex items-center text-danger btn-delete" project_id="{{$project->id}}" href="#"
+                            <a class="flex items-center text-danger btn-delete" new_id="{{$new->id}}" href="#"
                                 data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal">
                                 <i data-lucide="trash-2" class="w-4 h-4 mr-1"></i> Delete
                             </a>
@@ -186,17 +170,17 @@
 } );
 var oTable = $('#myTable').dataTable( {
     "aoColumnDefs": [
-        { "bSortable": false, "aTargets": [ 0,3,8] }, 
-        { "bSearchable": false, "aTargets": [0,3,8] }
+        { "bSortable": false, "aTargets": [ 0,3,7] }, 
+        { "bSearchable": false, "aTargets": [0,3,7] }
     ]
 }); 
 </script>
 <script>
     $(document).ready(function () {
         $('.btn-delete').click(function () {
-            var project_id = $(this).attr('project_id');
-            var url = "{{('/admin/delete-project/')}}";
-            $('#delete-confirmation-modal').find('a').attr('href', url + project_id);
+            var new_id = $(this).attr('new_id');
+            var url = "{{('/admin/delete-new/')}}";
+            $('#delete-confirmation-modal').find('a').attr('href', url + new_id);
         });
     });
 </script>
