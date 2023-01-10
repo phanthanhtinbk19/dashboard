@@ -1,12 +1,12 @@
 @extends("layout.layout")
 @section("content")
 
-{{-- <div class="login">
+<div class="signIn">
     <form action="{{('/save-login')}}" method="post" class="row g-3">
-        <div class="login__header">
+        <div class="signIn__header">
             <h2>THÔNG TIN ĐĂNG NHẬP</h2>
         </div>
-        <div class="login__body">
+        <div class="signIn__body">
             {{ csrf_field() }}
             <div class="col-md-12">
                 <div class="group-input">
@@ -23,26 +23,26 @@
                 </div>
             </div>
             <div class="d-grid gap-2">
-                <button type="submit" class="btn login__btn-signin btn-danger btn-lg">Sign in</button>
+                <button type="submit" class="btn signIn__btn-signin btn-danger btn-lg">Sign in</button>
             </div>
 
-            <div class="login__help">
-                <div class="login__term">
+            <div class="signIn__help">
+                <div class="signIn__term">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Nhớ tài khoản
                     </label>
                 </div>
-                <div class="login__forget-password">
+                <div class="signIn__forget-password">
                     <a class="">Quên mật khẩu?</a>
                 </div>
             </div>
-            <div class="login-social__title">
+            <div class="signIn-social__title">
                 <span>Hoặc</span>
             </div>
-            <div class="login__social row gx-5">
+            <div class="signIn__social row gx-5">
                 <div class="col-sm-6">
-                    <a href="{{url("login-facebook")}}" class="login__fb">
+                    <a href="{{url("signIn-facebook")}}" class="signIn__fb">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
                             viewBox="0 0 64 64" style=" fill:#000000;">
                             <path fill="#008aa9"
@@ -66,8 +66,8 @@
                     </a>
                 </div>
                 <div class="col-sm-6">
-                    <a href="https://batdongsan.com.vn/trang-ca-nhan/HandlerWeb/UserHandler.ashx?type=googlelogin"
-                        class="login__google ">
+                    <a href="https://batdongsan.com.vn/trang-ca-nhan/HandlerWeb/UserHandler.ashx?type=googlesignIn"
+                        class="signIn__google ">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
                             viewBox="0 0 48 48" style=" fill:#000000;">
                             <path fill="#fbc02d"
@@ -88,39 +88,12 @@
                     <div class="col-sm-6">
                     </div>
                 </div>
-                <div class="login__footer">
+                <div class="signIn__footer">
                     Chưa là thành viên? <a href="/sign-up">Đăng ký</a> tại đây
                 </div>
             </div>
         </div>
-</div> --}}
-
-{{-- mmmmmmmmmm --}}
-<div class="container mt-5">
-    <h2>How to Add Google Map in Laravel? - ItSolutionStuff.com</h2>
-    <div id="map"></div>
 </div>
-
-<script type="text/javascript">
-    function initMap() {
-      const myLatLng = { lat: 22.2734719, lng: 70.7512559 };
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 5,
-        center: myLatLng,
-      });
-
-      new google.maps.Marker({
-        position: myLatLng,
-        map,
-        title: "Hello Rajkot!",
-      });
-    }
-
-    window.initMap = initMap;
-</script>
-
-<script type="text/javascript"
-    src="https://maps.google.com/maps/api/js?key=AIzaSyC-lJwjTx612E_migFxeDJdZdxtZ-IAVLY&callback=initMap"></script>
 
 
 @endsection

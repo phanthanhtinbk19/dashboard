@@ -51,7 +51,7 @@
                                             <select class="form-select form-select-lg mb-3"
                                                 aria-label=".form-select-lg example">
                                             </select>
-                                            <div class="popup-filter">
+                                            {{-- <div class="popup-filter">
                                                 <h3>Khu vực & Dự án</h3>
                                                 <div class="popup-filter__list">
                                                     <select id="city1" class="form-select form-select-lg mb-3"
@@ -78,7 +78,7 @@
                                                     <span><i class="fa-solid fa-arrows-rotate"></i> Đặt lại</span>
                                                     <button class="btn btn-danger">Áp dụng</button>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
 
                                     </div>
@@ -114,12 +114,8 @@
                                         <div class="box-search__item">
                                             <select class="form-select form-select-lg mb-3"
                                                 aria-label=".form-select-lg example">
-                                                <option selected>Lọc thêm</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
                                             </select>
-                                            <div class="popup-filter">
+                                            {{-- <div class="popup-filter">
                                                 <div class="popup-filter__list">
                                                     <div class="popup-filter__item">
                                                         <h3>Số phòng ngủ</h3>
@@ -157,7 +153,7 @@
                                                     <span><i class="fa-solid fa-arrows-rotate"></i> Đặt lại</span>
                                                     <button class="btn btn-danger">Áp dụng</button>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -330,16 +326,18 @@
         <div class="container">
             <div class="new-sale__head">
                 <h2 class="heading">TIN RAO DÀNH CHO BẠN</h2>
-                <a class="see-more" href="/nha-dat-ban">
+                <a class="see-more" style="padding-bottom:10px" href="/nha-dat-ban">
                     <span>Xem thêm </span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
+
             <div class="row g-4">
                 @foreach ($all_post as $key => $post)
                 <div class="col-sm-3 ">
                     <x-card-sale postIds="{{$post->id}}" title="{{$post->title}}" price="{{$post->price}}"
-                        area="{{$post->area}}" address="{{$post->address}}" time="{{$post->created_at}}"></x-card-sale>
+                        area="{{$post->area}}" images="{{$post->images}}" address="{{$post->address}}"
+                        time="{{$post->created_at}}"></x-card-sale>
                 </div>
                 @endforeach
             </div>
@@ -353,16 +351,16 @@
         <div class="container">
             <div class="new-project__head">
                 <h2 class="heading">Dự án nổi bật</h2>
-                <a class="see-more" href="/du-an-bat-dong-san">
-                    <span>Xem thêm</span>
+                <a class="see-more " style="padding-bottom:10px" href="/du-an-bat-dong-san">
+                    <span> Xem thêm</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
             <div class="new-project__content">
                 <div class="row g-4 ">
-                    {{-- <div class="col-sm-3 ">
-                        <x-card1></x-card1>
-                    </div> --}}
+                    <div class="col-sm-3 ">
+                        <x-card-project></x-card-project>
+                    </div>
 
                 </div>
             </div>

@@ -5,26 +5,10 @@
 <div class="register">
     <form class="row g-3" action="{{('/save-register')}}" method="post">
         {{ csrf_field() }}
-
         <div class="register__header">
             <h2>Đăng ký tài khoản</h2>
-            {{-- @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif --}}
-
         </div>
         <div class="register__body">
-            {{-- <div class="col-md-12">
-                <div class="register__group">
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Tên đăng nhập*">
-                </div>
-            </div> --}}
             <div class="col-md-12">
                 <div class="register__group">
                     <input placeholder="Địa chỉ email*" value="{{old('email')}}" name="email" type="email"
@@ -35,7 +19,7 @@
                 @enderror
             </div>
             <div class="row mt-4">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="register__group">
                         <input type="password" value="{{old('password')}}" name="password" class="form-control"
                             id="inputEmail4" placeholder="Mật khẩu*">
@@ -44,15 +28,6 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="col-md-6">
-                    <div class="register__group">
-                        <input placeholder="Nhập lại mật khẩu*" id="password" type="password"
-                            name="password_confirmation" class="form-control" id="inputPassword4">
-                    </div>
-                    {{-- @error('password_confirmation')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror --}}
-                </div>
             </div>
             <div class="register__title">
                 <span> Thông tin cá nhân</span>
@@ -60,12 +35,12 @@
         </div>
         <div class="col-md-12">
             <div class="register__group">
-                <input type="text" class="form-control" id="inputEmail4" placeholder="Họ và tên*">
+                <input name="name" type="text" class="form-control" id="inputEmail4" placeholder="Họ và tên*">
             </div>
         </div>
         <div class="col-md-12">
             <div class="register__group">
-                <input placeholder="Số điện thoại*" type="text" class="form-control" id="inputPassword4">
+                <input name="phone" placeholder="Số điện thoại*" type="text" class="form-control" id="inputPassword4">
             </div>
         </div>
         <div class="d-grid gap-2 mb-3">
@@ -121,7 +96,7 @@
             </div>
         </div>
         <div class="register__footer">
-            Already a member? <a href="/register"> Log In</a> 
+            Already a member? <a href="/register"> Log In</a>
         </div>
     </form>
 </div>

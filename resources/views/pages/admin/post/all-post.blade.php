@@ -5,13 +5,17 @@
 @endsection
 <style>
     .desc,
-    .title {
+    .title,
+    .address {
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         display: -webkit-box;
         overflow: hidden !important;
         width: 100px;
         text-overflow: ellipsis;
+        text-transform: lowercase;
+
+
     }
 </style>
 @section('subcontent')
@@ -71,8 +75,6 @@
                     <th class="whitespace-nowrap">Status</th>
                     <th class="whitespace-nowrap">Created At</th>
                     <th class="whitespace-nowrap">Updated At</th>
-                    <th class="whitespace-nowrap">Creatd By</th>
-                    <th class="whitespace-nowrap">Updated By</th>
                     <th class="whitespace-nowrap">Actions</th>
 
                 </tr>
@@ -114,13 +116,13 @@
                         </span>
                     </td>
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$post->price}}</span>
+                        <span href="" class="font-medium whitespace-nowrap">{{$post->price}} triệu/m²</span>
                     </td>
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$post->area}}</span>
+                        <span href="" class="font-medium whitespace-nowrap">{{$post->area}} m²</span>
                     </td>
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$post->address}}</span>
+                        <span href="" class="font-medium whitespace-nowrap address">{{$post->address}}</span>
                     </td>
                     <td class="w-40">
                         <span href="" class="font-medium whitespace-nowrap">
@@ -156,16 +158,6 @@
                         <span href="" class="font-medium whitespace-nowrap">
                             {{$post->updated_at}}
                         </span>
-                    </td>
-                    <td class="w-40">
-                        {{-- <span href="" class="font-medium whitespace-nowrap">
-                            {{$post->created_by}}
-                        </span> --}}
-                    </td>
-                    <td class="w-40">
-                        {{-- <span href="" class="font-medium whitespace-nowrap">
-                            {{$post->updated_by}}
-                        </span> --}}
                     </td>
                     <td class="table-report__action w-56">
                         <div class="flex justify-center items-center">
@@ -225,8 +217,8 @@
 } );
 var oTable = $('#myTable').dataTable( {
     "aoColumnDefs": [
-        { "bSortable": false, "aTargets": [ 0,8] }, 
-        { "bSearchable": false, "aTargets": [0,8] }
+        { "bSortable": false, "aTargets": [ 0,3,5,8] }, 
+        { "bSearchable": false, "aTargets": [0,3,5,8] }
     ]
 }); 
 </script>

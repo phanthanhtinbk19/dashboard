@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-
+use Session;
+use App\Models\User;
 class PageController extends Controller
 {
     /**
@@ -14,8 +15,10 @@ class PageController extends Controller
      */
     public function dashboard()
     {
-        return view('pages.admin/dashboard', [
-        ]);
+        $account_id = Session::get('user_id');
+        $account = User::find($account_id);
+       
+        return view('pages.admin.dashboard', compact('account'));
     }
 
    
@@ -470,10 +473,10 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function updateProfile()
-    {
-        return view('pages/update-profile');
-    }
+    // public function updateProfile()
+    // {
+    //     return view('pages/update-profile');
+    // }
 
     /**
      * Show specified view.

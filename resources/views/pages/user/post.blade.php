@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container-fluid">
-    <form action="{{ route('form.data') }}" name="demoform" id="demoform" method="POST" class="dropzone"
+    <form action="{{(" /save-post")}}" name="demoform3" id="demoform3" method="POST" class="dropzone"
         enctype="multipart/form-data">
         @csrf
         <div class="post">
@@ -122,7 +122,7 @@
                                     <select name="kind" class="form-select form-select-lg"
                                         aria-label="Default select example">
                                         <option disabled>Chọn</option>
-                                        @foreach ($all_kind as $key => $kind)
+                                        @foreach ($kinds as $key => $kind)
                                         <option>{{ $kind->name }}</option>
                                         @endforeach
                                     </select>
@@ -586,157 +586,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<script>
-    var editor = CKEDITOR.replace('editor');
-    editor.on( 'change', function( evt ) {
-var data = evt.editor.getData();
-$(".description").val(data);
-
-// document.querySelector(".show").innerHTML = data;
-});
-</script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-<script>
-    var citis = document.getElementById("city");
-        var districts = document.getElementById("district");
-        var wards = document.getElementById("ward");
-        var Parameter = {
-            url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
-            method: "GET",
-            responseType: "application/json",
-        };
-        var promise = axios(Parameter);
-        promise.then(function(result) {
-            renderCity(result.data);
-        });
-
-        function renderCity(data) {
-            for (const x of data) {
-                citis.options[citis.options.length] = new Option(x.Name, x.Id);
-            }
-            citis.onchange = function() {
-                district.length = 1;
-                ward.length = 1;
-                if (this.value != "") {
-                    const result = data.filter(n => n.Id === this.value);
-
-                    for (const k of result[0].Districts) {
-                        district.options[district.options.length] = new Option(k.Name, k.Id);
-                    }
-                }
-            };
-            district.onchange = function() {
-                ward.length = 1;
-                const dataCity = data.filter((n) => n.Id === citis.value);
-                if (this.value != "") {
-                    const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
-
-                    for (const w of dataWards) {
-                        wards.options[wards.options.length] = new Option(w.Name, w.Id);
-                    }
-                }
-            };
-        }
-</script>
-<script>
-    const papers = document.querySelectorAll('.post-paper__item');
-        papers.forEach((paper, index) => {
-            paper.addEventListener('click', (e) => {
-                document.querySelector(".post-paper__item--active").classList.remove(
-                    'post-paper__item--active');
-
-                paper.classList.add('post-paper__item--active');
-
-            })
-
-        })
-</script>
-
-<script>
-    var text="";
-    $("#city").on('change', function(e) {
-        text+=$("#city option:selected").text();
-$(".address").val(text)
-    })
-    $("#district").on('change', function(e) {
-     text+=$("#district option:selected").text();
-$(".address").val(text)
-    })
-    $(".btn-plus__bedroom").on("click", function(e) {
-            $(".btn-minus__bedroom").removeClass("unactive");
-            $('.qty__bedroom').val(function(i, oldval) {
-                return ++oldval;
-            })
-        });
-        $(".btn-minus__bedroom").on("click", function(e) {
-            if (parseInt($('.qty__bedroom').val()) > 0) {
-                $('.qty__bedroom').val(function(i, oldval) {
-                    return --oldval;
-                });
-            } else {
-                $(this).addClass("unactive");
-            }
-
-
-        });
-
-        $(".btn-plus__bathroom").on("click", function(e) {
-            $(".btn-minus__bathroom").removeClass("unactive");
-            $('.qty__bathroom').val(function(i, oldval) {
-                return ++oldval;
-            })
-        });
-        $(".btn-minus__bathroom").on("click", function(e) {
-            if (parseInt($('.qty__bathroom').val()) > 0) {
-                $('.qty__bathroom').val(function(i, oldval) {
-                    return --oldval;
-                });
-            } else {
-                $(this).addClass("unactive");
-            }
-
-
-        });
-
-        $(".btn-plus__building").on("click", function(e) {
-            $(".btn-minus__building").removeClass("unactive");
-            $('.qty__building').val(function(i, oldval) {
-                return ++oldval;
-            })
-        });
-        $(".btn-minus__building").on("click", function(e) {
-            if (parseInt($('.qty__building').val()) > 0) {
-                $('.qty__building').val(function(i, oldval) {
-                    return --oldval;
-                });
-            } else {
-                $(this).addClass("unactive");
-            }
-
-
-        });
-</script>
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 <!-- Adding a script for dropzone -->
 
 
 <script>
     Dropzone.autoDiscover = false;
-    // Dropzone.options.demoform = true;	
+    // Dropzone.options.demoform = false;	
     let token = $('meta[name="csrf-token"]').attr('content');
     $(function() {
         var myDropzone = new Dropzone("div#dropzoneDragArea", {
@@ -766,7 +624,7 @@ $(".address").val(text)
                         url: URL,
                         data: formData,
                         success: function(result) {
-                        alert(result);
+                       
                             if (result.status == "success") {
 
                                 // fetch the useid 
@@ -780,10 +638,12 @@ $(".address").val(text)
                             }
                         }
                     });
+                    $('#demoform').trigger("reset");
                 });
 
                 //Gets triggered when we submit the image.
                 this.on('sending', function(file, xhr, formData) {
+                    
                     //fetch the user id from hidden input field and send that postid with our image
                     let postid = document.getElementById('postid').value;
                     formData.append('postid', postid);
@@ -814,6 +674,72 @@ $(".address").val(text)
 
 
 
+<script>
+    var editor = CKEDITOR.replace( 'editor' );
+// editor.on( 'change', function( evt ) {
+// var data = evt.editor.getData();
+// document.querySelector(".show").innerHTML = data;
+// });
 
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    var citis = document.getElementById("city");
+   
+var districts = document.getElementById("district");
+
+var wards = document.getElementById("ward");
+var Parameter = {
+url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json", 
+method: "GET", 
+responseType: "application/json", 
+};
+var promise = axios(Parameter);
+promise.then(function (result) {
+renderCity(result.data);
+});
+
+function renderCity(data) {
+for (const x of data) {
+citis.options[citis.options.length] = new Option(x.Name, x.Id);
+}
+citis.onchange = function () {
+district.length = 1;
+ward.length = 1;
+if(this.value != ""){
+  const result = data.filter(n => n.Id === this.value);
+
+  for (const k of result[0].Districts) {
+    district.options[district.options.length] = new Option(k.Name, k.Id);
+  }
+}
+};
+district.onchange = function () {
+ward.length = 1;
+const dataCity = data.filter((n) => n.Id === citis.value);
+if (this.value != "") {
+  const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
+
+  for (const w of dataWards) {
+    wards.options[wards.options.length] = new Option(w.Name, w.Id);
+  }
+}
+};
+}
+</script>
+
+<script>
+    $(".btn-submit").on("click", function(e) {
+        if($("#city").val()=="city"){
+            alert("Vui lòng chọn tỉnh thành");
+            return false;
+        }
+    $("#address").val($("#city option:selected").text() + "," + $("#district option:selected").text() + "," + $("#ward option:selected").text());
+  })
+ 
+//   $( "#myselect option:selected" ).text();
+
+</script>
 
 @endsection

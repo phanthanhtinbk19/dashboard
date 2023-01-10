@@ -17,7 +17,9 @@ class CardSale extends Component
     public $address;
     public $area;
     public $time;
-    public function __construct($title, $postIds,$price,$address,$area,$time)
+    public $images="";
+
+    public function __construct($title, $postIds,$price,$address,$area,$time,$images="")
     {
         $this->title = $title;
         $this->postIds = $postIds;
@@ -25,6 +27,7 @@ class CardSale extends Component
         $this->address = $address;
         $this->area = $area;
         $this->time = $time;
+        $this->images = $images;
     }
 
     /**

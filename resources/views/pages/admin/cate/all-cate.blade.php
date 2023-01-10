@@ -144,7 +144,7 @@ var oTable = $('#myTable').dataTable( {
     ]
 }); 
 </script>
-
+`
 <script>
     $(document).ready(function () {
         $('.btn-delete').click(function () {

@@ -61,12 +61,12 @@
         object-fit: cover;
     }
     &__text {
-        font-size: 1.8rem;
-        padding-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        font-weight: 500;
+        font-family: "Roboto Regular" !important;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: normal !important;
+        color: #2c2c2c;
+        font-weight: 600 !important;
     }
     &__text a {
         text-decoration: none;

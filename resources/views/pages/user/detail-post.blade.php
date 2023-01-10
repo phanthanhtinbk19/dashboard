@@ -1,6 +1,5 @@
 @extends("layout.layout")
 @section("content")
-@foreach ($post as $key => $post)
 <div class="detail">
     <div class="container">
         <div class="row">
@@ -18,9 +17,9 @@
                     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
                         class="swiper mySwiper3">
                         <div class="swiper-wrapper">
-                            @foreach (json_decode($post->images) as $key => $image)
+                            @foreach (explode(",", $post->images) as $key => $image)
                             <div class="swiper-slide">
-                                <img src="{{url("uploads/posts/$image")}}" />
+                                <img src="{{url("/uploads/images/$image")}}" />
                             </div>
                             @endforeach
 
@@ -30,9 +29,9 @@
                     </div>
                     <div thumbsSlider="" class="swiper mySwiper1">
                         <div class="swiper-wrapper">
-                            @foreach (json_decode($post->images) as $key => $image)
+                            @foreach (explode(",", $post->images) as $key => $image)
                             <div class="swiper-slide">
-                                <img src="{{url("uploads/posts/$image")}}" />
+                                <img src="{{url("/uploads/images/$image")}}" />
                             </div>
                             @endforeach
 
@@ -70,7 +69,7 @@
                                     <div class="feature__item">
                                         <span class="feature__item-icon"> <img src="{{url("frontend/images/icons8-dollar-coin-50.png")}}" alt=""></span>
                                         <span class="feature-item__title">Mức giá</span>
-                                        <span class="feature-item__value">{{$post->price}}</span>
+                                        <span class="feature-item__value">{{$post->price}} triệu/m²</span>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -213,7 +212,7 @@
                         </div>
 
                         <div class="detail__same">
-                            <h2 class="heading">Tin rao cùng khu vực
+                            <h2 class="heading">Tin rao tương tự
                             </h2>
                             <section class="article">
                                 <div class="container">
@@ -301,7 +300,6 @@
     </div>
 </div>
 
-@endforeach
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 

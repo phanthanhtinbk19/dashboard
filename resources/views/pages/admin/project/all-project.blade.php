@@ -5,13 +5,17 @@
 @endsection
 <style>
     .desc,
-    .title {
+    .title,
+    .address {
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         display: -webkit-box;
         overflow: hidden !important;
         width: 100px;
         text-overflow: ellipsis;
+        text-transform: lowercase;
+
+
     }
 </style>
 @section('subcontent')
@@ -103,7 +107,7 @@
 
 
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$project->address}}</span>
+                        <span href="" class="font-medium whitespace-nowrap address">{{$project->address}}</span>
                     </td>
 
 
@@ -174,8 +178,8 @@
 } );
 var oTable = $('#myTable').dataTable( {
     "aoColumnDefs": [
-        { "bSortable": false, "aTargets": [ 0,8] }, 
-        { "bSearchable": false, "aTargets": [0,8] }
+        { "bSortable": false, "aTargets": [ 0,3,8] }, 
+        { "bSearchable": false, "aTargets": [0,3,8] }
     ]
 }); 
 </script>

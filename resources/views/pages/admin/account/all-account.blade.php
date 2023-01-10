@@ -5,11 +5,11 @@
 @endsection
 
 @section('subcontent')
-<h2 class="intro-y text-lg font-medium mt-10">Users List</h2>
+<h2 class="intro-y text-lg font-medium mt-10">Account List</h2>
 <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
         <button class="btn btn-primary shadow-md mr-2">
-            <a href="{{'add-user'}}">Add New Users</a>
+            <a href="{{'/admin/add-account'}}">Add New Account</a>
         </button>
         <div class="dropdown">
             <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
@@ -37,17 +37,11 @@
                 </ul>
             </div>
         </div>
-        <div class="hidden md:block mx-auto text-slate-500">Showing 1 to 10 of 150 entries</div>
-        <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
-            <div class="w-56 relative text-slate-500">
-                <input type="text" class="form-control w-56 box pr-10" placeholder="Search...">
-                <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-lucide="search"></i>
-            </div>
-        </div>
+
     </div>
     <!-- BEGIN: Data List -->
     <div class="intro-y col-span-12 overflow-auto 2xl:overflow-visible">
-        <table class="table table-report -mt-2">
+        <table id="myTable" class="table table-report -mt-2">
             <thead>
                 <tr>
                     <th class="whitespace-nowrap">
@@ -55,120 +49,85 @@
                     </th>
                     <th class="whitespace-nowrap">ID</th>
                     <th class="whitespace-nowrap">NAME</th>
-                    <th class=" whitespace-nowrap">EMAIL</th>
+                    <th class="whitespace-nowrap">EMAIL</th>
                     <th class="whitespace-nowrap">RULE</th>
-                    <th class="whitespace-nowrap"> PHOTO </th>
+                    <th class="whitespace-nowrap">Avatar</th>
                     <th class="whitespace-nowrap">CREATE AT</th>
                     <th class="whitespace-nowrap">UPDATE AT</th>
                     <th class="whitespace-nowrap">ACTIONS</th>
-                    <th class="whitespace-nowrap">AUTHORIZATION</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($all_user as $key => $user)
+                @foreach ($accounts as $key => $account)
                 <tr class="intro-x">
                     <td class="w-10">
                         <input class="form-check-input" type="checkbox">
                     </td>
                     <td class="w-40 !py-4">
-                        <a href="" class="underline decoration-dotted whitespace-nowrap">{{$user->id}}</a>
+                        <a href="" class="underline decoration-dotted whitespace-nowrap">{{$account->id}}</a>
                     </td>
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$user->name}}</span>
+                        <span href="" class="font-medium whitespace-nowrap">{{$account->name}}</span>
                     </td>
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$user->email}}</span>
+                        <span href="" class="font-medium whitespace-nowrap">{{$account->email}}</span>
                     </td>
+
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$user->rule}}</span>
+                        <select class="form-select w-40" aria-label=".form-select-lg example">
+                            @if ($account->role == 'user')
+                            <option selected value="user">User</option>
+                            <option value="admin">Admin</option>
+                            @else
+                            <option value="user">User</option>
+                            <option selected value="admin">Admin</option>
+                            @endif
+                        </select>
+
                     </td>
                     <td class="w-40">
                         <div class="w-12 h-12 image-fit zoom-in">
-                            <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="{{url("uploads/users/$user->photo")}}" title="Uploaded at {{$user->created_at}}">
+                            @if ($account->avatar)
+                            <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="{{url("uploads/accounts/$account->avatar")}}" title="Uploaded at {{$account->created_at}}">
                             >
+                            @else
+                            <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="{{url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/account_icon_2.svg/800px-account_icon_2.svg.png")}}"
+                                title="Uploaded at {{$account->created_at}}">
+                            >
+                            @endif
+
                         </div>
                     </td>
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$user->created_at}}</span>
+                        <span href="" class="font-medium whitespace-nowrap">{{$account->created_at}}</span>
                     </td>
                     <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$user->updated_at}}</span>
+                        <span href="" class="font-medium whitespace-nowrap">{{$account->updated_at}}</span>
                     </td>
 
                     <td class="table-report__action w-56">
                         <div class="flex justify-center items-center">
-                            <a class="flex items-center mr-3" href="javascript:;">
+                            <a class="flex items-center mr-3" href="{{(" /admin/edit-account/$account->id")}}">
                                 <i data-lucide="check-square" class="w-4 h-4 mr-1"></i> Edit
                             </a>
-                            <a class="flex items-center text-danger" href="javascript:;" data-tw-toggle="modal"
-                                data-tw-target="#delete-confirmation-modal">
+                            <a class="btn-delete flex items-center text-danger 
+                            " account_id="{{$account->id}}" href="#" data-tw-toggle="modal"
+                                data-tw-target="#delete-confirmation-modal-account">
                                 <i data-lucide="trash-2" class="w-4 h-4 mr-1"></i> Delete
                             </a>
                         </div>
                     </td>
-                    <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">
-                            Thay doi
-                        </span>
-                    </td>
+
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
     <!-- END: Data List -->
-    <!-- BEGIN: Pagination -->
-    <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
-        <nav class="w-full sm:w-auto sm:mr-auto">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#">
-                        <i class="w-4 h-4" data-lucide="chevrons-left"></i>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">
-                        <i class="w-4 h-4" data-lucide="chevron-left"></i>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">...</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item active">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">...</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">
-                        <i class="w-4 h-4" data-lucide="chevron-right"></i>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">
-                        <i class="w-4 h-4" data-lucide="chevrons-right"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <select class="w-20 form-select box mt-3 sm:mt-0">
-            <option>10</option>
-            <option>25</option>
-            <option>35</option>
-            <option>50</option>
-        </select>
-    </div>
-    <!-- END: Pagination -->
+
 </div>
 <!-- BEGIN: Delete Confirmation Modal -->
-<div id="delete-confirmation-modal" class="modal" tabindex="-1" aria-hidden="true">
+<div id="delete-confirmation-modal-account" class="modal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body p-0">
@@ -181,11 +140,41 @@
                 <div class="px-5 pb-8 text-center">
                     <button type="button" data-tw-dismiss="modal"
                         class="btn btn-outline-secondary w-24 mr-1">Cancel</button>
-                    <button type="button" class="btn btn-danger w-24">Delete</button>
+                    <button type="button" class="btn btn-danger w-24">
+                        <a href="#"> Delete</a>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- END: Delete Confirmation Modal -->
+
+@endsection
+
+@section('script')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+    
+} );
+var oTable = $('#myTable').dataTable( {
+    "aoColumnDefs": [
+        { "bSortable": false, "aTargets": [ 0,4,5,8] }, 
+        { "bSearchable": false, "aTargets": [0,4,5,8] }
+    ]
+}); 
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.btn-delete').click(function () {
+            var account_id = $(this).attr('account_id');
+            var url = "{{('delete-account/')}}";
+            $('#delete-confirmation-modal-account').find('a').attr('href', url + account_id);
+        });
+    });
+</script>
 @endsection

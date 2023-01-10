@@ -90,9 +90,9 @@
             <span>4</span>
         </div>
         <button class="header__signIn">
-            <a href="/dang-nhap">Đăng nhập</a>
+            <a href="/login">Đăng nhập</a>
         </button>
-        <button class="header__signUp"><a href="/dang-ky">Đăng ký</a></button>
+        <button class="header__signUp"><a href="/register">Đăng ký</a></button>
         <button class="header__post">
             <a href="/dang-tin">
                 Đăng tin</a></button>

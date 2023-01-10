@@ -28,7 +28,8 @@
                         @foreach ($all_post as $key => $post)
                         <div class="col-sm-4">
                             <x-card-sale postIds="{{$post->id}}" title="{{$post->title}}" price="{{$post->price}}"
-                                area="{{$post->area}}" address="{{$post->address}}" time="{{$post->created_at}}">
+                                area="{{$post->area}}" images="{{$post->images}}" address="{{$post->address}}"
+                                time="{{$post->created_at}}">
                             </x-card-sale>
                         </div>
                         @endforeach

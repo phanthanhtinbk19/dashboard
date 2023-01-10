@@ -13,7 +13,7 @@
                 <img alt="Icewall Tailwind HTML Admin Template" class="w-6"
                     src="{{ asset('build/assets/images/logo.svg') }}">
                 <span class="text-white text-lg ml-3">
-                    Tinker
+                    RealEstate
                 </span>
             </a>
             <div class="my-auto">

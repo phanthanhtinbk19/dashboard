@@ -14,9 +14,9 @@
             <button type="button" class="btn box mr-2 flex items-center ml-auto sm:ml-0">
                 <i class="w-4 h-4 mr-2" data-lucide="eye"></i> Preview
             </button>
-            <button class="dropdown-toggle btn btn-primary shadow-md flex items-center" aria-expanded="false"
+            <button class="btn-submit dropdown-toggle btn btn-primary shadow-md flex items-center" aria-expanded="false"
                 data-tw-toggle="dropdown" type="submit">
-                Save <i class="w-4 h-4 ml-2" data-lucide="chevron-down"></i>
+                Save
             </button>
         </div>
     </div>
@@ -102,38 +102,6 @@
         <!-- BEGIN: Post Info -->
         <div class=" col-span-12 lg:col-span-4">
             <div class="intro-y box p-5">
-                <div>
-                    <label class="form-label">Written By</label>
-                    <div class="dropdown">
-                        <div class="dropdown-toggle btn w-full btn-outline-secondary dark:bg-darkmode-800 dark:border-darkmode-800 flex items-center justify-start"
-                            role="button" aria-expanded="false" data-tw-toggle="dropdown">
-                            <div class="w-6 h-6 image-fit mr-3">
-                                <img class="rounded" alt="Midone - HTML Admin Template"
-                                    src="{{ asset('build/assets/images/' . $fakers[0]['photos'][0]) }}">
-                            </div>
-                            <div class="truncate">{{ $fakers[0]['users'][0]['name'] }}
-                            </div>
-                            <i class="w-4 h-4 ml-auto" data-lucide="chevron-down"></i>
-                        </div>
-                        <div name="created_by" class="dropdown-menu w-full">
-                            <ul class="dropdown-content">
-                                @foreach (array_slice($fakers, 0, 5) as $faker)
-                                <li>
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="w-6 h-6 absolute image-fit mr-3">
-                                            <img class="rounded" alt="Midone - HTML Admin Template"
-                                                src="{{ asset('build/assets/images/' . $faker['photos'][0]) }}">
-                                        </div>
-                                        <div class="ml-8 pl-1">{{
-                                            $faker['users'][0]['name'] }}</div>
-                                    </a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="mt-3">
                     <label for="post-form-3" class="form-label">Categories</label>
                     <select name="category_id" data-placeholder="Select category" class="tom-select w-full"
@@ -152,6 +120,7 @@
                     </select>
                 </div>
                 <img src="" alt="">
+                <input type="hidden" name="address" id="address">
                 <div class="mt-3">
                     <label for="post-form-2" class="form-label">Price</label>
                     <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
@@ -300,7 +269,7 @@
     var citis = document.getElementById("city");
    
 var districts = document.getElementById("district");
-console.log(districts);
+
 var wards = document.getElementById("ward");
 var Parameter = {
 url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json", 
@@ -339,6 +308,19 @@ if (this.value != "") {
 }
 };
 }
+</script>
+
+<script>
+    $(".btn-submit").on("click", function(e) {
+        if($("#city").val()=="city"){
+            alert("Vui lòng chọn tỉnh thành");
+            return false;
+        }
+    $("#address").val($("#city option:selected").text() + "," + $("#district option:selected").text() + "," + $("#ward option:selected").text());
+  })
+ 
+//   $( "#myselect option:selected" ).text();
+
 </script>
 @vite('resources/js/ckeditor-classic.js')
 @endsection

@@ -17,12 +17,11 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('photo')->nullable();
-            $table->string('rule');
-            $table->string('address');
-            $table->string('phone');
+            $table->string('avatar')->nullable();
+            $table->string('role');
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

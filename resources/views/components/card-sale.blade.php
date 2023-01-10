@@ -1,9 +1,11 @@
 <a href="{{url("chi-tiet-bai-viet/$postIds")}}">
-
     <div class="card">
         <div class="card__top ">
-            <img src="https://batdongsanhome.com.vn/images/products/2022/07/large/z3550585934763_b7e51b14839188d92df572439ee1ba1b.jpg "
-                alt=" ">
+            @foreach (explode(",",$images) as $key => $image)
+            @if($key == 0)
+            <img src="{{url("/uploads/images/$image")}}" />
+            @endif
+            @endforeach
             <span class="card__price ">
                 <i class="fa-solid fa-tag"></i>
                 {{$price}}tỷ

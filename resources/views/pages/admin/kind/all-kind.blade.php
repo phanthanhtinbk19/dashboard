@@ -49,12 +49,9 @@
                     </th>
                     <th class="whitespace-nowrap">ID</th>
                     <th class="whitespace-nowrap">NAME</th>
-                    <th class="whitespace-nowrap">CATEGORY ID</th>
+                    <th class="whitespace-nowrap">CATEGORY</th>
                     <th class=" whitespace-nowrap">CREATED BY</th>
                     <th class="whitespace-nowrap">CREATE AT</th>
-                    <th class="text-right whitespace-nowrap">
-                        UPDATED BY
-                    </th>
                     <th class="whitespace-nowrap">UPDATE AT</th>
                     <th class="whitespace-nowrap">ACTIONS</th>
                 </tr>
@@ -85,9 +82,6 @@
                     </td>
                     <td class="w-40">
                         <span href="" class="font-medium whitespace-nowrap">{{$kind->created_at}}</span>
-                    </td>
-                    <td class="w-40">
-                        <span href="" class="font-medium whitespace-nowrap">{{$kind->updated_by}}</span>
                     </td>
                     <td class="w-40">
                         <span href="" class="font-medium whitespace-nowrap">{{$kind->updated_at}}</span>
@@ -149,8 +143,8 @@
 } );
 var oTable = $('#myTable').dataTable( {
     "aoColumnDefs": [
-        { "bSortable": false, "aTargets": [ 0,8] }, 
-        { "bSearchable": false, "aTargets": [0,8] }
+        { "bSortable": false, "aTargets": [ 0,7] }, 
+        { "bSearchable": false, "aTargets": [0,7] }
     ]
 }); 
 </script>
