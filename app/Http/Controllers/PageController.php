@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Session;
 use App\Models\User;
+use App\Models\Post;
 class PageController extends Controller
 {
     /**
@@ -17,8 +18,11 @@ class PageController extends Controller
     {
         $account_id = Session::get('user_id');
         $account = User::find($account_id);
+        $userCount = User::all()->count();
+        $postCount = Post::all()->count();
+
        
-        return view('pages.admin.dashboard', compact('account'));
+        return view('pages.admin.dashboard', compact('account',"userCount","postCount"));
     }
 
    
