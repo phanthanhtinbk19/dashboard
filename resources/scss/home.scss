@@ -1,5 +1,14 @@
 /*hero-slide  start */
 
+.tt {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    text-transform: lowercase;
+}
+
 .hero-slide {
     width: 100%;
     position: relative;

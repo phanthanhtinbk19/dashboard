@@ -85,4 +85,9 @@ class NewController extends Controller
             toastr()->error('Oops! Something went wrong!', 'Oops!');
         }
     }
+    public function detailNew($new_id)
+    {
+        $new = News::find($new_id);
+        return view('pages.user.detail-new', compact('new'));
+    }
 }

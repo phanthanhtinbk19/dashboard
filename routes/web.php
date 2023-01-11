@@ -86,7 +86,7 @@ Route::controller(PostController::class)->group(function () {
     Route::get('admin/add-post', 'addPostAdmin')->name('admin/add-post');
     Route::get('admin/all-post', 'allPostadmin')->name('admin/all-post');
     Route::post('admin/save-post', 'savePostAdmin')->name('admin/save-post');
-    Route::post('storeMultipleImage', 'storeMultipleImage')->name('storeMultipleImage');
+    Route::post('storeMultipleImage1', 'storeMultipleImage1')->name('storeMultipleImage1');
     Route::get('admin/delete-post/{post_id}', 'deletePost')->name('admin/delete-post/{post_id}');
     Route::get('/chi-tiet-bai-viet/{post_id}', 'detailPost');
     Route::post('/save-post', 'savePost')->name('/save-post');
@@ -109,6 +109,7 @@ Route::controller(NewController::class)->group(function () {
     Route::get('admin/delete-new/{new_id}', 'deleteNew')->name('admin/delete-new/{new_id}');
     Route::get('admin/edit-new/{new_id}', 'editNew');
     Route::post('admin/update-new/{new_id}', 'updateNew');
+    Route::get('/chi-tiet-tin-tuc/{new_id}', 'detailNew');
 });
 Route::controller(EmployeeController::class)->group(function () {
     Route::get('admin/add-employee', 'addEmployee')->name('admin/add-employee');

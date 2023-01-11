@@ -22,13 +22,14 @@ class PostController extends Controller
             $post->address = $request->address;
             $post->save();
             $post_id = $post->id; // this give us the last inserted record id
+            return response()->json(['status' => 'success', 'post_id' => $post_id]);
         } catch (\Exception $e) {
             return response()->json(['status' => 'exception', 'msg' => $e->getMessage()]);
         }
 
-        return response()->json(['status' => 'success', 'post_id' => $post_id]);
+      
     }
-    public function storeMultipleImage(Request $request)
+    public function storeMultipleImage1(Request $request)
     {
         try {
             $imageArr = [];

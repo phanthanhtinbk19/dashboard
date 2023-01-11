@@ -215,11 +215,13 @@
                                 <div class="row pb-4">
                                     <div class="col-sm-4">
                                         <div class="new-more__img ">
-                                            @foreach (explode(",",$new->images) as $key => $image)
-                                            @if($key == 0)
-                                            <img style="height:120px" src="{{url("/uploads/images/$image")}}" />
-                                            @endif
-                                            @endforeach
+                                            <a href="{{url("chi-tiet-tin-tuc/$new->id")}}">
+                                                @foreach (explode(",",$new->images) as $key => $image)
+                                                @if($key == 0)
+                                                <img style="height:120px" src="{{url("/uploads/images/$image")}}" />
+                                                @endif
+                                                @endforeach
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
@@ -238,6 +240,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             @endif
 
 

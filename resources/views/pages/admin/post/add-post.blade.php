@@ -180,7 +180,7 @@
     $(function() {
         var myDropzone = new Dropzone("div#dropzoneDragArea", {
             paramName: "file",
-            url: "{{ url('/storeMultipleImage') }}",
+            url: "{{ url('storeMultipleImage1') }}",
             previewsContainer: 'div.dropzone-previews',
             addRemoveLinks: true,
             autoProcessQueue: false,

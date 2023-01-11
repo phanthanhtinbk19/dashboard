@@ -1,7 +1,9 @@
 <div class="card1">
     <div class="card1__img">
         @foreach (explode(",", $images) as $key => $image)
+        @if($key == 0)
         <img src="{{url("/uploads/images/$image")}}" />
+        @endif
         @endforeach
     </div>
     <div class="card1__info ">
